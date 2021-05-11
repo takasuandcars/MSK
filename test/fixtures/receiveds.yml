@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  received_date: 2021-05-11
+  awb: MyString
+  invoice: MyString
+  inspection: false
+  shipping: false
+  shipped_date: 2021-05-11
+  number_of_order: 1
+
+two:
+  received_date: 2021-05-11
+  awb: MyString
+  invoice: MyString
+  inspection: false
+  shipping: false
+  shipped_date: 2021-05-11
+  number_of_order: 1
