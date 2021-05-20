@@ -7,6 +7,11 @@ class PickupRequestsController < ApplicationController
         redirect_to root_url
     end
     
+    def update
+      
+    end
+    
+    
     private
         def pickup_params
          params.require(:pickup_request).permit(:pickup_date, :arrange)
