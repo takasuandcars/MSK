@@ -1,0 +1,9 @@
+<h1>test</h1>
+
+<%= form_with model: @received do |f| %>
+
+<%= f.label :date, "日付" %>
+<%= f.date_field :date %>
+
+<%= f.submit %>
+<% end %>
