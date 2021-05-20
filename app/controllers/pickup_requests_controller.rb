@@ -4,7 +4,7 @@ class PickupRequestsController < ApplicationController
         p = PickupRequest.new(pickup_params)
         p.save
       
-        redirect_to "receiveds/new"
+        redirect_to root_url
     end
     
     private

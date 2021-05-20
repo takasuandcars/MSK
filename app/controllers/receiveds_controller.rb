@@ -1,12 +1,12 @@
 class ReceivedsController < ApplicationController
     
-    def new
-        @received = Received.new
-        
-        @pickup_request = PickupRequest.new
-    end
+    
     
     def create
+        
+        r = Received.new(received_params)
+        r.save
+        redirect_to root_url
       
     end
     
