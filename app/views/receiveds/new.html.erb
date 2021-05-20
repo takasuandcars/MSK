@@ -1,9 +1,58 @@
 <h1>test</h1>
 
-<%= form_with model: @received do |f| %>
+<div class="received">
+        
+    <%= form_with model: @received , local: true do |f| %>
+    
+    <%= f.label :received_date, "日付" %>
+    <%= f.date_field :received_date %>
+    
+    <%= f.label :awb %>
+    <%= f.text_field :awb %>
+    
+    <%= f.label :invoice %>
+    <%= f.text_field :invoice %>
+    
+    <%= f.label :inspection %>
+    <%= f.check_box :inspection %>
+    
+    <%= f.label :shipping %>
+    <%= f.check_box :shipping %>
+    
+    <%= f.label :number_of_order %>
+    <%= f.text_field :number_of_order %>
+    
+    <%= f.label :shipping_date %>
+    <%= f.date_field :shipping_date %>
+    
+    
+    <%= f.submit %>
+    
+    <% end %>
+</div>
 
-<%= f.label :date, "日付" %>
-<%= f.date_field :date %>
-
-<%= f.submit %>
-<% end %>
+<div class="pickup_request">
+    <%= form_with model: @pickup_request, local: true do |f| %>
+    
+    <%= f.label :pickup_date %>
+    <%= f.date_field :pickup_date %>
+    
+    <%= f.label :arrange %>
+    <%= f.check_box :arrange %>
+    
+    <%= f.label :car_number %>
+    <%= f.text_field :car_number%>
+    
+    <%= f.label :received %>
+    <%= f.check_box :received %>
+    
+    <%= f.label :number_of_total_order %>
+    <%= f.text_field :number_of_total_order %>
+    
+    <%= f.submit "ボタン"%>
+    
+    <% end %>
+    
+    
+    
+</div>
