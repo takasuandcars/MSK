@@ -1,6 +1,8 @@
-<h1>test</h1>
-
-<div class="received">
+<h1>データ一覧</h1>
+<button class="make_button", id="received_button">クーリエ</button>
+<button class="make_button", id="pickup_request_button">航空貨物</button>    
+<!--mok-->
+<div class="received", style="display:none">
         
     <%= form_with model: @received , local: true do |f| %>
     
@@ -30,8 +32,8 @@
         
     <% end %>
 </div>
-
-<div class="pickup_request">
+<!--mok-->
+<div class="pickup_request", style="display:none">
     <%= form_with model: @pickup_request, local: true do |f| %>
     
         <%= f.label :pickup_date %>
@@ -56,7 +58,7 @@
     
     
 </div>
-
+<!--mok-->
 
 <div class="datas" >
     <% @datas.each  do  |data|%>
@@ -71,7 +73,7 @@
         <li>
             <%= data.id %> 
         </li>
-        <div class="pickup_request_received" id=<%= "pickup_data#{data.id}" %>>
+        <div class="pickup_request_received" id=<%= "pickup_data#{data.id}" %>, style="display:none">
             <%= form_with model: @received , local: true do |f| %>
         
             <%= f.label :received_date, "日付" %>
