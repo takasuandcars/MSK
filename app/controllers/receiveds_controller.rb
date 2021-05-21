@@ -3,11 +3,19 @@ class ReceivedsController < ApplicationController
     
     
     def create
-        
-        r = Received.new(received_params)
-        r.save
-        redirect_to root_url
-      
+        p = PickupRequest.find_by(id: params[:id])
+        if p.nil?
+            
+            r = Received.new(received_params)
+            r.save
+            redirect_to root_url
+        else
+            
+            r = p.Received.build(received_params)
+            r.save
+            
+            redirect_to root_url
+        end
     end
     
         private
