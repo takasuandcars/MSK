@@ -21,4 +21,8 @@ document.addEventListener("turbolinks:load" ,function () {
        $('#received_form').hide();
     });
     
+    $('.pickup_data').on("click", function(){
+      $(this).find('.pickup_request_form').slideToggle("fast");
+    });
+    
 });

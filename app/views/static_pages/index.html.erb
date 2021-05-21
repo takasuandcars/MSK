@@ -70,10 +70,14 @@
     
     <% elsif data.class == PickupRequest %>
     
+       <div class="pickup_data" >
+            
         <li>
             <%= data.id %> 
         </li>
-        <div class="pickup_request_received" id=<%= "pickup_data#{data.id}" %>, style="display:none">
+        
+        <!--mok-->
+        <div class="pickup_request_form" id=<%= "pickup_data_#{data.id}_form" %>, style="display:none">
             <%= form_with model: @received , local: true do |f| %>
         
             <%= f.label :received_date, "日付" %>
@@ -100,10 +104,14 @@
             
             <%= f.submit %>
             <% end %>
+        </div>
+        <!--mok-->
+       </div>
+        
         
     <% end %>
             
-        </div>
+        
     
     <%end%>
     
