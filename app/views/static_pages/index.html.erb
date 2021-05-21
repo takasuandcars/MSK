@@ -60,9 +60,49 @@
 
 <div class="datas" >
     <% @datas.each  do  |data|%>
-    <li>
-        <%= data.id %> 
-    </li>
+    
+    <% if data.class == Received %>
+        <li>
+            <%= data.id %> 
+        </li>
+    
+    <% elsif data.class == PickupRequest %>
+    
+        <li>
+            <%= data.id %> 
+        </li>
+        <div class="pickup_request_received" id=<%= "pickup_data#{data.id}" %>>
+            <%= form_with model: @received , local: true do |f| %>
+        
+            <%= f.label :received_date, "日付" %>
+            <%= f.date_field :received_date %>
+            
+            <%= f.label :awb %>
+            <%= f.text_field :awb %>
+            
+            <%= f.label :invoice %>
+            <%= f.text_field :invoice %>
+            
+            <%= f.label :inspection %>
+            <%= f.check_box :inspection %>
+            
+            <%= f.label :shipping %>
+            <%= f.check_box :shipping %>
+            
+            <%= f.label :number_of_order %>
+            <%= f.text_field :number_of_order %>
+            
+            <%= f.label :shipping_date %>
+            <%= f.date_field :shipping_date %>
+            
+            
+            <%= f.submit %>
+            <% end %>
+        
+    <% end %>
+            
+        </div>
+    
     <%end%>
     
 </div>
