@@ -20,7 +20,8 @@ class ReceivedsController < ApplicationController
     
         private
             def received_params
-                params.require(:received).permit(:received_date, :awb )
+                params.require(:received).permit(:received_date, :awb, :invoice, :inspection, 
+                             :shipping, :shipped_date, :number_of_order, :pickup_request_id )
             end
     
     
