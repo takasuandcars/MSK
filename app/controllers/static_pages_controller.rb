@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
     @received = Received.new
     @pickup_request = PickupRequest.new
      
-    @datas = ActiveRecord::Base.connection.select_all("
+   @datas = ActiveRecord::Base.connection.select_all("
     SELECT
         receiveds.*, 
         pickup_requests.id AS pickup_requests_id,

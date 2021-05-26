@@ -21,6 +21,7 @@ class ReceivedsController < ApplicationController
     def show
         @pickup_data = PickupRequest.find_by(id: params[:id].to_i)
         @receivedsin = @pickup_data.receiveds
+        
     end
     
         private
