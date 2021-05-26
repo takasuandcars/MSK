@@ -1,0 +1,14 @@
+<% if @receivedsin %>
+            
+     <% @receivedsin.each do |received| %>
+     <li>
+            <span class="reveiced_date">入荷予定日：<%= received.received_date%></span>
+            <span class="awb">AWB：<%= received.awb %></span> 
+            <span class="invoice">Inv：<%= received["invoice"]%></span> 
+            <span class="inspection">検品：<%= received.inspection %></span> 
+            <span class="shipping">出荷：<%= received.shipping%></span> 
+            <span class="shipped_date">出荷日：<%= received.shipped_date%></span> 
+            <span class="number_of_order">行数：<%= received.number_of_order %></span> 
+     </li>
+     <%end%>
+<%end%>

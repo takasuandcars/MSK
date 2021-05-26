@@ -65,20 +65,34 @@
     
    <% if data["pickup_request_id"] == nil && data["pickup_requests_id"] == nil%>
         <li style="color:red;">
-            <%= data["id"]%> 
+            <span class="reveiced_date">入荷予定日：<%= data["received_date"]%></span>
+            <span class="awb">AWB：<%= data["awb"]%></span> 
+            <span class="invoice">Inv：<%= data["invoice"]%></span> 
+            <span class="inspection">検品：<%= data["inspection"]%></span> 
+            <span class="shipping">出荷：<%= data["shipping"]%></span> 
+            <span class="shipped_date">出荷日：<%= data["shipped_date"]%></span> 
+            <span class="number_of_order">行数：<%= data["number_of_order"]%></span> 
         </li>
     
     <% else%>
 
     
        <div class="pickup_data" >
-            
-        <li>
-            <%= data["pickup_requests_id"] %> 
+        <span class="show_button">▷</span>
+        <li style="display: inline;">
+            <span class="pickup_date">集荷日：<%= data["pickup_date"] %></span>
+            <span class="arrange">手配：<%= data["arrange"] %></span>
+            <span class="car_number">車番：<%= data["car_number"] %></span>
+            <span class="number_of_total_order">総行数：<%= data["number_of_total_order"] %></span>
         </li>
         
         <!--mok-start-create-received-in-->
         <div class="pickup_request_form" id=<%= "pickup_data_#{data["id"]}_form" %>, style="display:none">
+         <div id=<%= "receivedsin#{data["pickup_requests_id"]}"%>>
+           <span class="show"><%= link_to "show", receiveds_show_path(id: data["pickup_requests_id"]), remote: true %>
+            
+         </div>
+            <li>
             <%= form_with model: @received , local: true do |f| %>
         
             <%= f.label :received_date, "日付" %>
@@ -105,6 +119,7 @@
             
             <%= f.submit %>
             <% end %>
+            </li>
         </div>
         <!--mok-->
        </div>

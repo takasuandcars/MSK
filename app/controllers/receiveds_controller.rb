@@ -18,6 +18,11 @@ class ReceivedsController < ApplicationController
         end
     end
     
+    def show
+        @pickup_data = PickupRequest.find_by(id: params[:id].to_i)
+        @receivedsin = @pickup_data.receiveds
+    end
+    
         private
             def received_params
                 params.require(:received).permit(:received_date, :awb, :invoice, :inspection, 
