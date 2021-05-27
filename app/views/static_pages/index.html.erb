@@ -1,62 +1,65 @@
-<h1>データ一覧</h1>
-<button class="make_button", id="received_button">クーリエ</button>
-<button class="make_button", id="pickup_request_button">航空貨物</button>    
-<!--mok_start-create-received-->
-<div class="received", style="display:none", id="received_form">
-        
-    <%= form_with model: @received , local: true do |f| %>
-    
-        <%= f.label :received_date, "日付" %>
-        <%= f.date_field :received_date %>
-        
-        <%= f.label :awb %>
-        <%= f.text_field :awb %>
-        
-        <%= f.label :invoice %>
-        <%= f.text_field :invoice %>
-        
-        <%= f.label :inspection %>
-        <%= f.check_box :inspection %>
-        
-        <%= f.label :shipping %>
-        <%= f.check_box :shipping %>
-        
-        <%= f.label :number_of_order %>
-        <%= f.text_field :number_of_order %>
-        
-        <%= f.label :shipping_date %>
-        <%= f.date_field :shipping_date %>
-        
-        
-        <%= f.submit %>
-        
-    <% end %>
-</div>
-<!--mok-start-create-pickup-->
-<div class="pickup_request", style="display:none", id="pickup_request_form">
-    <%= form_with model: @pickup_request, local: true do |f| %>
-    
-        <%= f.label :pickup_date %>
-        <%= f.date_field :pickup_date %>
-        
-        <%= f.label :arrange %>
-        <%= f.check_box :arrange %>
-        
-        <%= f.label :car_number %>
-        <%= f.text_field :car_number%>
-        
-        <%= f.label :received %>
-        <%= f.check_box :received %>
-        
-        <%= f.label :number_of_total_order %>
-        <%= f.text_field :number_of_total_order %>
-        
-        <%= f.submit "ボタン"%>
-        
-    <% end %>
-    
-    
-    
+<h1 class="title">データ一覧</h1>
+
+<div class="sub-title">
+        <button class="make_button", id="received_button">クーリエ</button>
+        <button class="make_button", id="pickup_request_button">航空貨物</button>    
+        <!--mok_start-create-received-->
+        <div class="received", style="display:none", id="received_form">
+                
+            <%= form_with model: @received , local: true do |f| %>
+            
+                <%= f.label :received_date, "日付" %>
+                <%= f.date_field :received_date %>
+                
+                <%= f.label :awb %>
+                <%= f.text_field :awb %>
+                
+                <%= f.label :invoice %>
+                <%= f.text_field :invoice %>
+                
+                <%= f.label :inspection %>
+                <%= f.check_box :inspection %>
+                
+                <%= f.label :shipping %>
+                <%= f.check_box :shipping %>
+                
+                <%= f.label :number_of_order %>
+                <%= f.text_field :number_of_order %>
+                
+                <%= f.label :shipping_date %>
+                <%= f.date_field :shipping_date %>
+                
+                
+                <%= f.submit %>
+                
+            <% end %>
+        </div>
+        <!--mok-start-create-pickup-->
+        <div class="pickup_request", style="display:none", id="pickup_request_form">
+            <%= form_with model: @pickup_request, local: true do |f| %>
+            
+                <%= f.label :pickup_date %>
+                <%= f.date_field :pickup_date %>
+                
+                <%= f.label :arrange %>
+                <%= f.check_box :arrange %>
+                
+                <%= f.label :car_number %>
+                <%= f.text_field :car_number%>
+                
+                <%= f.label :received %>
+                <%= f.check_box :received %>
+                
+                <%= f.label :number_of_total_order %>
+                <%= f.text_field :number_of_total_order %>
+                
+                <%= f.submit "ボタン"%>
+                
+            <% end %>
+            
+            
+            
+        </div>
 </div>
 <!--mok-start-show-->
 
