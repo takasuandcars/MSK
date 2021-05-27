@@ -1,0 +1,17 @@
+.main {
+   display: flex;
+   height: 100%;
+}
+
+
+.left-sidebar {
+   align-items: stretch;
+   width: 150px;
+   background-color: grey;
+}
+
+.main-container {
+   margin: 50px 20px;
+   width: 100%;
+   
+}
