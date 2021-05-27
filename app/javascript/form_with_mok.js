@@ -22,7 +22,15 @@ document.addEventListener("turbolinks:load" ,function () {
     });
     
     $('.show_button').on("click", function(){
+        if($(this).hasClass('open')){
+          $(this).text("▶︎");
+          $(this).removeClass('open');
+        } else {
+            $(this).addClass('open');
+            $(this).text("▽");
+        }
       $(this).parent().find('.pickup_request_form').slideToggle("fast");
+      
      
     });
     
