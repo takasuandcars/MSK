@@ -64,68 +64,29 @@
 <!--mok-start-show-->
 
 <div class="datas" >
-    <ol>
-    <% @datas.each  do  |data|%>
-    
-   <% if data["pickup_request_id"] == nil && data["pickup_requests_id"] == nil%>
-        <li style="color:red;">
-            <span class="reveiced_date">入荷予定日：<%= data["received_date"]%></span>
-            <span class="awb">AWB：<%= data["awb"]%></span> 
-            <span class="invoice">Inv：<%= data["invoice"]%></span> 
-            <span class="inspection">検品：<%= data["inspection"]%></span> 
-            <span class="shipping">出荷：<%= data["shipping"]%></span> 
-            <span class="shipped_date">出荷日：<%= data["shipped_date"]%></span> 
-            <span class="number_of_order">行数：<%= data["number_of_order"]%></span> 
-        </li>
-    
-    <% else%>
-
-    
-       <li class="pickup_data" ,style="display: inline;">
-            <span class="show_button"><%= link_to "▶︎", receiveds_show_path(id: data["pickup_requests_id"]), remote: true %></span>
-            <span class="pickup_date">集荷日：<%= data["pickup_date"] %></span>
-            <span class="arrange">手配：<%= data["arrange"] %></span>
-            <span class="number_of_total_order">総行数：<%= data["number_of_total_order"] %></span>
-      
-        
-        <!--mok-start-create-received-in-->
-        <div class="pickup_request_form" id=<%= "pickup_data_#{data["id"]}_form" %>, style="display:none">
-         <div id=<%= "receivedsin#{data["pickup_requests_id"]}"%>>
-         </div>
-            <div>
-            <%= form_with model: @received , local: true do |f| %>
-        
-            <%= f.label :received_date, "日付" %>
-            <%= f.date_field :received_date %>
-            
-            <%= f.label :awb %>
-            <%= f.text_field :awb %>
-            
-            <%= f.label :invoice %>
-            <%= f.text_field :invoice %>
-            
-            <%= f.label :inspection %>
-            <%= f.check_box :inspection %>
-            
-            <%= f.label :shipping %>
-            <%= f.check_box :shipping %>
-            
-            <%= f.label :number_of_order %>
-            <%= f.text_field :number_of_order %>
-            
-            <%= f.label :shipping_date %>
-            <%= f.date_field :shipping_date %>
-            
-            
-            <%= f.submit %>
-            <% end %>
-            </div>
-        </div>
-        <!--mok-->
-       </li>
-        
-       
-    <% end %>
-    <%end%>
-    </ol>
+<table class="table_box">
+  <tr>
+    <th class="received_data_column">入荷日</th>
+    <th class="awb-column">AWB</th>
+    <th class="invoice_column">INV</th>
+    <th class="number_column">行数</th>
+    <th class="shipped_date_column">出荷日</th>
+    <th class="remark_column">備考</th>
+    <th class="function_column">機能</th>
+  </tr>
+  <% @datas.each  do  |data|%>
+      <tr>
+        <td class="received_data_row"><%= data["received_date"]%></td>
+        <td class="awb-row"><%= data["awb"]%></td>
+        <td class="invoice_row"><%= data["invoice"]%></td>
+        <td class="number_row"><%= data["number_of_order"]%></td>
+        <td class="shipped_date_row"><%= data["shipped_date"]%></td>
+        <td class="emark_column"></td>
+        <td class="function_row">
+            <span><%= link_to "編集", "#" %></span>
+        </td>
+      </tr>
+  <%end%>
+</table>
+  
 </div>
