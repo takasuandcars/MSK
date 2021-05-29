@@ -1,0 +1,10 @@
+
+        <div class="tr td received_data_row"><%= @data.received_date%></div>
+        <div class="tr td awb-row"><%= @data.awb%></div>
+        <div class="tr td invoice_row"><%= @data.invoice%></div>
+        <div class="tr td number_row"><%= @data.number_of_order%></div>
+        <div class="tr td shipped_date_row"><%= @data.shipped_date%></div>
+        <div class="tr td emark_column"></div>
+        <div class="tr td function_row">
+            <span><%= link_to "編集", receveds_modify_path(id: @data.id), remote: true %></span>
+        </div>

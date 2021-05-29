@@ -30,10 +30,15 @@ class ReceivedsController < ApplicationController
     end
     
     def update
-        debugger
         @data = Received.find_by(id: params[:id])
         @data.update_attributes(received_params)
+    end
+    
+    def destroy
+        Received.find_by(id: params[:id]).destroy
+        
         redirect_to root_url
+        
     end
     
         private
