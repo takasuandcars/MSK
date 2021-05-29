@@ -24,6 +24,18 @@ class ReceivedsController < ApplicationController
         
     end
     
+    def modify
+        @data = Received.find_by(id: params[:id])
+        
+    end
+    
+    def update
+        debugger
+        @data = Received.find_by(id: params[:id])
+        @data.update_attributes(received_params)
+        redirect_to root_url
+    end
+    
         private
             def received_params
                 params.require(:received).permit(:received_date, :awb, :invoice, :inspection, 

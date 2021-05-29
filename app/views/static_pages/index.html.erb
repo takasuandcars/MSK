@@ -64,29 +64,31 @@
 <!--mok-start-show-->
 
 <div class="datas" >
-<table class="table_box">
-  <tr>
-    <th class="received_data_column">入荷日</th>
-    <th class="awb-column">AWB</th>
-    <th class="invoice_column">INV</th>
-    <th class="number_column">行数</th>
-    <th class="shipped_date_column">出荷日</th>
-    <th class="remark_column">備考</th>
-    <th class="function_column">機能</th>
-  </tr>
-  <% @datas.each  do  |data|%>
-      <tr>
-        <td class="received_data_row"><%= data["received_date"]%></td>
-        <td class="awb-row"><%= data["awb"]%></td>
-        <td class="invoice_row"><%= data["invoice"]%></td>
-        <td class="number_row"><%= data["number_of_order"]%></td>
-        <td class="shipped_date_row"><%= data["shipped_date"]%></td>
-        <td class="emark_column"></td>
-        <td class="function_row">
-            <span><%= link_to "編集", "#" %></span>
-        </td>
-      </tr>
-  <%end%>
-</table>
+
+    <div class="table table_box">
+      <div class="tr_box">
+        <div class="tr th received_data_column">入荷日</div>
+        <div class="tr th awb-column">AWB</div>
+        <div class="tr th invoice_column">INV</div>
+        <div class="tr th thnumber_column">行数</div>
+        <div class="tr th shipped_date_column">出荷日</div>
+        <div class="tr th remark_column">備考</div>
+        <div class="tr th function_column">機能</div>
+      </div>
+      <% @datas.each  do  |data|%>
+      <div class="tr_box data_show" id=<%= "data_#{data["id"]}" %>>
+        <div class="tr td received_data_row"><%= data["received_date"]%></div>
+        <div class="tr td awb-row"><%= data["awb"]%></div>
+        <div class="tr td invoice_row"><%= data["invoice"]%></div>
+        <div class="tr td number_row"><%= data["number_of_order"]%></div>
+        <div class="tr td shipped_date_row"><%= data["shipped_date"]%></div>
+        <div class="tr td emark_column"></div>
+        <div class="tr td function_row">
+            <span><%= link_to "編集", receveds_modify_path(id: data["id"]), remote: true %></span>
+        </div>
+      </div>
+      <%end%>
+    </div>
+
   
 </div>
