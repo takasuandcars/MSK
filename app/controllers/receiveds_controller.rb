@@ -35,10 +35,8 @@ class ReceivedsController < ApplicationController
     end
     
     def destroy
-        Received.find_by(id: params[:id]).destroy
-        
-        redirect_to root_url
-        
+        @data = Received.find_by(id: params[:id])
+        @data.destroy
     end
     
         private
