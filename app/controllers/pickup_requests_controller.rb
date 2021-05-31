@@ -11,6 +11,11 @@ class PickupRequestsController < ApplicationController
       
     end
     
+    def index
+        @datas = PickupRequest.all
+        @pickup_request = PickupRequest.new
+    end
+    
     
     private
         def pickup_params

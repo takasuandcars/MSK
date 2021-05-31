@@ -9,7 +9,16 @@
    height: 100%;
    width: 150px;
    background-color: #1e1e1e;
-   color: white;
+   padding-top: 50px;
+   a{
+      display: block;
+      padding: 10px 5px 0 15px;
+      color: white;
+   }
+   
+   a:hover {
+      color: #FFFF66;
+   }
 }
 
 .main-container {

@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     get "/receiveds/show", to: "receiveds#show"
     get "/receveds/modify", to: "receiveds#modify"
     get "/pdf", to: "record_pdfs#index"
+    get "/pickup_requests/index", to: "pickup_requests#index"
 
 end
