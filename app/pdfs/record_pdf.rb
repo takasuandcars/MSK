@@ -85,7 +85,7 @@ def initialize(record)
     ]
   
   move_down 670
-  table rows, cell_style: { height: 30, width: 135, padding: 0 } do
+  table rows, cell_style: { height: 30, width: 137, padding: 0 } do
       # 枠線なし
       # 文字サイズ
       cells.size = 15      # 枠線左と上だけ

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_20_051827) do
+ActiveRecord::Schema.define(version: 2021_05_31_034825) do
 
   create_table "pickup_requests", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.date "pickup_date"
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 2021_05_20_051827) do
     t.integer "number_of_total_order"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "type"
+    t.integer "number_of_car"
+    t.integer "weight"
   end
 
   create_table "receiveds", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
