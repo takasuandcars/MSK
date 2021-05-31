@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+    get 'record_pdfs/index'
     root "static_pages#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
     resources :pickup_requests, only: [:create]
@@ -6,5 +7,6 @@ Rails.application.routes.draw do
     post "receiveds/update", to: "receiveds#update"
     get "/receiveds/show", to: "receiveds#show"
     get "/receveds/modify", to: "receiveds#modify"
+    get "/pdf", to: "record_pdfs#index"
 
 end
