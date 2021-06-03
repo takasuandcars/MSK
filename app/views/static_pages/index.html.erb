@@ -75,7 +75,7 @@
 <div class="datas" >
 
     <div class="table table_box">
-      <div class="tr_box">
+      <div class="tr_box tr_box_th">
         <div class="tr th received_data_column">入荷日</div>
         <div class="tr th awb-column">AWB</div>
         <div class="tr th invoice_column">INV</div>
@@ -85,7 +85,7 @@
         <div class="tr th function_column">機能</div>
       </div>
       <% @datas.each  do  |data|%>
-      <div class="tr_box data_show" id=<%= "data_#{data["id"]}" %>>
+      <div class="tr_box data_show tr_box_td" id=<%= "data_#{data["id"]}" %>>
         <div class="tr td received_data_row"><%= data["received_date"]%></div>
         <div class="tr td awb-row"><%= data["awb"]%></div>
         <div class="tr td invoice_row"><%= data["invoice"]%></div>

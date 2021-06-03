@@ -25,7 +25,7 @@ class ReceivedsController < ApplicationController
     end
     
     def modify
-        @data = Received.find_by(id: params[:id])
+        @received = Received.find_by(id: params[:id])
         
     end
     
