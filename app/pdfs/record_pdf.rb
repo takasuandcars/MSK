@@ -35,7 +35,7 @@ def initialize(record)
   
   
   text_box "集荷日時: ", size: 13, at: [0, 630], height: 30, valign: :center
-  text_box "#{@time.strftime('%Y年%-m月%-d日')}", size: 13, at: [75, 630], height: 30, valign: :center
+  text_box "#{@record.pickup_date.strftime('%Y年%-m月%-d日')}", size: 13, at: [75, 630], height: 30, valign: :center
   stroke_horizontal_line 75, 200, :at => 605
   
   text_box "時間  :  指定なし", size: 13, at: [300, 630], height: 30, valign: :center
@@ -70,7 +70,7 @@ def initialize(record)
   #コントローラーにて仕切り線のプログラム
   
   text_box "荷降日時: ", size: 13, at: [0, 375], height: 30, valign: :center
-  text_box "#{@time.strftime('%Y年%-m月%-d日')} or #{@time.since(1.days).strftime('%-m月%-d日')}朝", size: 13, at: [75, 375], height: 30, valign: :center
+  text_box "#{@record.pickup_date.strftime('%Y年%-m月%-d日')} or #{@record.pickup_date.since(1.days).strftime('%-m月%-d日')}朝", size: 13, at: [75, 375], height: 30, valign: :center
   stroke_horizontal_line 75, 250, :at => 345
   text_box "時間  :  ", size: 13, at: [300, 375], height: 30, valign: :center
   stroke_horizontal_line 350, 500, :at => 345
