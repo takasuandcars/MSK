@@ -16,6 +16,11 @@ class PickupRequestsController < ApplicationController
         @pickup_request = PickupRequest.new
     end
     
+    def sendmail
+        pickuprequest = PickupRequest.find_by(id: params[:id])
+        PickupRequestMailer.send_pickup_request(pickuprequest).deliver
+    end
+    
     
     private
         def pickup_params

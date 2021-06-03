@@ -22,9 +22,8 @@ class RecordPdfsController < ApplicationController
     
          pdf.move_down 670 
          pdf.table rows, cell_style: { height: 30, width: 137, padding: 0 } do
-          # 枠線なし
           # 文字サイズ
-            cells.size = 15      # 枠線左と上だけ
+            cells.size = 15      
           # 1行目はセンター寄せ
             row(0).align = :center
         end
