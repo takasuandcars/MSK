@@ -30,8 +30,8 @@ class ReceivedsController < ApplicationController
     end
     
     def update
-        @data = Received.find_by(id: params[:id])
-        @data.update_attributes(received_params)
+        @received = Received.find_by(id: params[:id])
+        @received.update_attributes(received_params)
     end
     
     def destroy
