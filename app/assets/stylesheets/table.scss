@@ -40,7 +40,8 @@ h2 {
   border-top: none;
   box-shadow: 0px -3px 5px 1px #eee inset;
   width: 100%;
-  padding: 10px 0;
+  padding: 5px 0;
+  font-size: 15px;
 }
 
 .table .td:last-child {
@@ -64,6 +65,12 @@ h2 {
     height: 25px;
 }
 
+.tr_box_td:hover{
+  background: #CCFFFF;
+  
+   
+}
+
 
 
 
@@ -76,12 +83,13 @@ h2 {
   }
   
   .td {
-    padding:  0;
+    padding: 0;
     
     input {
       width:140px;
-      margin: 5px auto 0;
+      margin: 2px auto 0;
       height: 15px;
+      padding: 0;
 
     }
     
@@ -91,7 +99,7 @@ h2 {
       border: none;
       background: none;
       font-size: 15px;
-      
+      margin: 0 auto 0;
     }
   }
   
