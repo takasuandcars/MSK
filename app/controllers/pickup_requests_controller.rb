@@ -11,6 +11,11 @@ class PickupRequestsController < ApplicationController
       
     end
     
+    def edit
+        @pickup_request = PickupRequest.find_by(id: params[:id])
+
+    end
+    
     def index
         @datas = PickupRequest.all
         @pickup_request = PickupRequest.new

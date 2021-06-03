@@ -32,6 +32,7 @@ class ReceivedsController < ApplicationController
     def update
         @received = Received.find_by(id: params[:id])
         @received.update_attributes(received_params)
+        
     end
     
     def destroy
