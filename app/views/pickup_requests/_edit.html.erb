@@ -8,7 +8,7 @@
                 <div class="tr td function_row">
                     <span><%= f.submit "保存", class: "btn"%></span>
                    
-                    <span><%= link_to "削除", received_path(id: @pickup_request.id), method: :delete, class: "btn", remote: true%></span>
+                    <span><%= link_to "削除", pickup_request_path(id: @pickup_request.id), method: :delete, class: "btn", remote: true%></span>
                 </div>
         <%end%>  
         

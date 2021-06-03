@@ -11,6 +11,12 @@ class PickupRequestsController < ApplicationController
       
     end
     
+    def destroy
+        @pickup_request= PickupRequest.find_by(id: params[:id])
+        @pickup_request.destroy
+    
+    end
+    
     def edit
         @pickup_request = PickupRequest.find_by(id: params[:id])
 
