@@ -8,6 +8,9 @@ class PickupRequestsController < ApplicationController
     end
     
     def update
+        @pickup_request = PickupRequest.find_by(id: params[:id])
+        @pickup_request.update_attributes(pickup_params)
+
       
     end
     

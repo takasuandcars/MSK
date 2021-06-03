@@ -1,0 +1,11 @@
+
+        <div class="tr td pickup_date_row"><%= @pickup_request.pickup_date%></div>
+        <div class="tr td car_type_row"><%= @pickup_request.car_type%></div>
+        <div class="tr td number_of_car_row"><%= @pickup_request.number_of_car%></div>
+        <div class="tr td number_of_total_order_row"><%= @pickup_request.number_of_total_order%></div>
+        <div class="tr td weight_row"><%= @pickup_request.weight%></div>
+        <div class="tr td remark_column"></div>
+        <div class="tr td function_row">
+            <span><%= link_to "編集", pickup_requests_edit_path(id: @pickup_request.id), remote: true %></span>
+            <span><%= link_to "PDF", pdf_path(format: :pdf, id: @pickup_request.id), local: true %></span>
+        </div>
