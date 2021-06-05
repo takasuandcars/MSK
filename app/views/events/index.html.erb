@@ -1,0 +1,10 @@
+<h1>Events#index</h1>
+<p>Find me in app/views/events/index.html.erb</p>
+
+<div id='calendar'></div>
+<%# ↑このコードさえあればカレンダーが現れてくれます %>
+
+<%= javascript_pack_tag 'calendar/event' %>
+<%# これを書くとapp/javascript/packsの中にある
+calendarディレクトリ内のevent.jsというファイルを読み込んでくれます。
+詳しくは次で出てきます。 %>
