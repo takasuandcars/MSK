@@ -11,7 +11,15 @@ document.addEventListener('turbolinks:load', function() {
     //カレンダーの中身を設定(月表示とか、クリックアクション起こしたいとか、googleCalendar使うととか)
     var calendar = new Calendar(calendarEl, {
         plugins: [ monthGridPlugin, interactionPlugin, googleCalendarApi ],
-
+        
+        eventSources: [
+          {
+            googleCalendarApiKey: 'AIzaSyAXIuvFq7dzxiCZ0meU1ZWfaN_0UTSrvKg',
+            googleCalendarId: 'japanese__ja@holiday.calendar.google.com',
+            display: 'background',
+            className: 'holiday',
+          }
+        ],
 
         //細かな表示設定
         locale: 'ja',

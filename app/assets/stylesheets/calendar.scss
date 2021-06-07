@@ -1,3 +1,18 @@
 // Place all the styles related to the record_pdfs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.holiday {
+    background: #ffeaea!important;
+    
+    .fc-event-title{
+        color: red;
+    }
+}
+.fc-day-sat {
+    background: #eaf4ff;
+}
+
+.fc-day-sun {
+    background:#ffeaea;
+}
