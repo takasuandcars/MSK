@@ -46,7 +46,9 @@ document.addEventListener('turbolinks:load', function() {
         },
         eventClassNames: function(arg){
             //表示されたイベントにclassをcss用に追加する(詳しくは次回の記事へ)
-        }
+        },
+        
+        events: '/events/index.json'
 
     });
     //カレンダー表示
