@@ -18,7 +18,12 @@ document.addEventListener('turbolinks:load', function() {
             googleCalendarId: 'japanese__ja@holiday.calendar.google.com',
             display: 'background',
             className: 'holiday',
-          }
+          },
+          [{"id":2,"title":"集","start":"2021-06-07","end":"2021-06-07"},
+          {"id":19,"title":"集","start":"2021-06-09","end":"2021-06-09"} 
+          ],
+          [{"id":10,"title":"出","start":"2021-06-09","end":"2021-06-09"}
+          ,{"id":13,"title":"出","start":"2021-06-09","end":"2021-06-09"}]
         ],
 
         //細かな表示設定
@@ -46,12 +51,22 @@ document.addEventListener('turbolinks:load', function() {
         },
         eventClassNames: function(arg){
             //表示されたイベントにclassをcss用に追加する(詳しくは次回の記事へ)
-        },
-        
-        events: '/events/index.json'
-
+        }
     });
     //カレンダー表示
     calendar.render();
 
+});
+
+/* global $*/
+$("#calendar").click(function() {
+ var thisEl = $(this).find('.fc-daygrid-day');
+ var thisElText = thisEl.find('.fc-event-title');
+ $(thisElText).closest(".fc .fc-daygrid-event-harness").css({'position' : ''});
+ for(var i = 0; i < thisElText.length; i++){
+     
+     if(thisElText[i].textContent === "集"){$(thisElText[i]).closest(".fc-daygrid-event-harness").addClass("pickup-request-mark");}
+     
+ }
+ 
 });
