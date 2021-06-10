@@ -2,6 +2,7 @@ Rails.application.routes.draw do
     get 'events/index', to: "events#index"
     get 'record_pdfs/index'
     root "static_pages#index"
+    get 'receiveds', to: "receiveds#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
     resources :pickup_requests, only: [:create, :update, :destroy]
     resources :receiveds, only: [:create, :update, :destroy]
