@@ -1,5 +1,18 @@
 class PickupRequestsController < ApplicationController
     
+    
+    def index
+       
+        @pickup_request = PickupRequest.new
+        if  params[:search].nil? 
+            @datas = PickupRequest.all
+        else
+           @datas = PickupRequest.where(pickup_date: (params[:search][:start_day])..(params[:search][:end_day]))
+
+        end
+
+    end
+    
     def create
         p = PickupRequest.new(pickup_params)
         p.save
@@ -23,11 +36,6 @@ class PickupRequestsController < ApplicationController
     def edit
         @pickup_request = PickupRequest.find_by(id: params[:id])
 
-    end
-    
-    def index
-        @datas = PickupRequest.all
-        @pickup_request = PickupRequest.new
     end
     
     def sendmail
