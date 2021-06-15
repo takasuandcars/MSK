@@ -19,11 +19,7 @@ document.addEventListener('turbolinks:load', function() {
             display: 'background',
             className: 'holiday',
           },
-          [{"id":2,"title":"集","start":"2021-06-07","end":"2021-06-07"},
-          {"id":19,"title":"集","start":"2021-06-09","end":"2021-06-09"} 
-          ],
-          [{"id":10,"title":"出","start":"2021-06-09","end":"2021-06-09"}
-          ,{"id":13,"title":"出","start":"2021-06-09","end":"2021-06-09"}]
+          '/events/index.json'
         ],
 
         //細かな表示設定
