@@ -63,7 +63,10 @@
       </div>
       <% @datas.each  do  |data|%>
       <div class="tr_box data_show tr_box_td" id=<%= "data_#{data.id}" %>>
-        <div class="tr td pickup_date_row"><%= data.pickup_date%></div>
+        <div class="tr td pickup_date_row">
+            <%= link_to "▶ ", receiveds_index_box_path(id: data.id),  class: "btn-receiveds", remote: true %>
+            <%= data.pickup_date%>
+        </div>
         <div class="tr td car_type_row"><%= data.car_type%></div>
         <div class="tr td number_of_car_row"><%= data.number_of_car%></div>
         <div class="tr td number_of_total_order_row"><%= data.number_of_total_order%></div>
@@ -73,7 +76,14 @@
             <span><%= link_to "編集", pickup_requests_edit_path(id: data.id), remote: true %></span>
             <span><%= link_to "PDF", pdf_path(format: :pdf, id: data.id), local: true %></span>
         </div>
+
       </div>
+         <!--mok    showing revceiveds -->
+         <div class="inside_table_box">
+ 
+             
+             
+         </div>
       <%end%>
     </div>
 </div>

@@ -1,0 +1,123 @@
+// Place all the styles related to the PickupRequests controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+h2 {
+    text-align: center;
+}
+
+
+.inside_table_box {
+  width: 900px;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 auto;
+
+}
+.inside_tr_th {
+  display: flex;
+  height: 20px;
+  font-size: 12px;
+}
+
+.inside_table_box .inth:first-child {
+  border-radius: 5px 0 0 0;
+}
+
+.inside_table_box .inth:last-child {
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+
+.inside_table_box .inth {
+  text-align: center;
+  color:white;
+  background: linear-gradient(#d56a00,#ff8000);
+  border-left: 1px solid #d56a00;
+  border-top: 1px solid #d56a00;
+  border-bottom: 1px solid #d56a00;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.inside_table_box .intd {
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top: none;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+  width: 100%;
+  padding: 5px 0;
+  font-size: 15px;
+}
+
+.inside_table_box .intd:last-child {
+  border-right: 1px solid #a8b7c5;
+}
+
+.inside_table_box .intr:last-child .intd:first-child {
+  border-radius: 0 0 0 5px;
+}
+
+.tr_box {
+  display: flex;
+  text-align: center;
+}
+
+.tr_box_th {
+  height: 30px;
+}
+
+.tr_box_td {
+    height: 25px;
+}
+
+.tr_box_td:hover{
+  background: #CCFFFF;
+  
+   
+}
+
+.inside_tr_td{
+  display: flex;
+  width: 100%;
+  height: 20px;
+  
+}
+
+
+
+//編集画面 
+
+.form_with_css {
+  display: flex;
+  width: 100%;
+  
+  .intr{
+    width: 100%;
+    height: 20px;
+  }
+  
+  .intd {
+    padding: 0;
+    
+    input {
+      width:110px;
+      margin: 2px auto 0;
+      height: 12px;
+      padding: 0;
+
+    }
+    
+    .btn {
+      height: 18px;
+      width: 40px;
+      border: none;
+      background: none;
+      font-size: 12px;
+      margin: 0 auto 0;
+    }
+  }
+  
+  
+}

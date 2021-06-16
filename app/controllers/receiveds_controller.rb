@@ -3,9 +3,13 @@ class ReceivedsController < ApplicationController
     def index
         @received = Received.new
         @datas = Received.all
-        
     end
     
+    def index_box_in
+        @pickup_data = PickupRequest.find_by(id: params[:id])
+        @received_datas = @pickup_data.receiveds
+        @received = @pickup_data.receiveds.build
+    end
     
     def create
         p = PickupRequest.find_by(id: params[:id])
