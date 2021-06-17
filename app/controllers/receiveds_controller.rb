@@ -7,7 +7,7 @@ class ReceivedsController < ApplicationController
     
     def index_box_in
         @pickup_data = PickupRequest.find_by(id: params[:id])
-        @received_datas = @pickup_data.receiveds
+        @received_datas = @pickup_data.receiveds.all
         @received = @pickup_data.receiveds.build
     end
     

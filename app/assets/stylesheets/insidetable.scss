@@ -10,7 +10,8 @@ h2 {
   width: 900px;
   border-collapse: separate;
   border-spacing: 0;
-  margin: 0 auto;
+  margin: 10px auto;
+  display: none;
 
 }
 .inside_tr_th {
@@ -81,43 +82,47 @@ h2 {
 .inside_tr_td{
   display: flex;
   width: 100%;
-  height: 20px;
+  height: 23px;
   
-}
+
 
 
 
 //編集画面 
 
-.form_with_css {
-  display: flex;
-  width: 100%;
-  
-  .intr{
+  .form_with_css {
+    display: flex;
     width: 100%;
-    height: 20px;
-  }
-  
-  .intd {
-    padding: 0;
     
-    input {
-      width:110px;
-      margin: 2px auto 0;
-      height: 12px;
+    .tr{
+      width: 100%;
+      height: 25px;
+    }
+    
+    .td {
       padding: 0;
-
-    }
-    
-    .btn {
-      height: 18px;
-      width: 40px;
-      border: none;
-      background: none;
-      font-size: 12px;
-      margin: 0 auto 0;
+      input {
+        width:110px;
+        margin: 5px auto 0;
+        height: 12px;
+        padding: 0;
+  
+      }
+      
+      .function_row {
+        a {
+          font-size: 30px;
+        }
+      }
+      
+      .btn {
+        width: 50%;
+        height: 25px;
+        border: none;
+        background: none;
+        font-size: 12px;
+        margin: 0 auto 0;
+      }
     }
   }
-  
-  
 }

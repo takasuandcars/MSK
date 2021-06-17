@@ -64,7 +64,7 @@
       <% @datas.each  do  |data|%>
       <div class="tr_box data_show tr_box_td" id=<%= "data_#{data.id}" %>>
         <div class="tr td pickup_date_row">
-            <%= link_to "▶ ", receiveds_index_box_path(id: data.id),  class: "btn-receiveds", remote: true %>
+            <%= link_to "▶", receiveds_index_box_path(id: data.id),  class: "btn-receiveds", remote: true %>
             <%= data.pickup_date%>
         </div>
         <div class="tr td car_type_row"><%= data.car_type%></div>
