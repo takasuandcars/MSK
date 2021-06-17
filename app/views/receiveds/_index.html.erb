@@ -21,15 +21,15 @@
         <%end%>  
  </div>
  <% @received_datas.each  do  |data|%>
-      <div class="inside_tr_td" id=<%= "data_#{data["id"]}" %>>
-        <div class="intr intd received_data_row"><%= data["received_date"]%></div>
-        <div class="intr intd awb-row"><%= data["awb"]%></div>
-        <div class="intr intd invoice_row"><%= data["invoice"]%></div>
-        <div class="intr intd number_row"><%= data["number_of_order"]%></div>
-        <div class="intr intd shipped_date_row"><%= data["shipped_date"]%></div>
+      <div class="inside_tr_td" id=<%= "data_#{data.id}" %>>
+        <div class="intr intd received_data_row"><%= data.received_date%></div>
+        <div class="intr intd awb-row"><%= data.awb%></div>
+        <div class="intr intd invoice_row"><%= data.invoice%></div>
+        <div class="intr intd number_row"><%= data.number_of_order%></div>
+        <div class="intr intd shipped_date_row"><%= data.shipped_date%></div>
         <div class="intr intd emark_column"></div>
         <div class="intr intd function_row">
-            <span><%= link_to "編集", receveds_modify_path(id: data["id"]), remote: true %></span>
+            <span><%= link_to "編集", receveds_modify_path(id: data.id), remote: true %></span>
         </div>
       </div>
  <%end%>

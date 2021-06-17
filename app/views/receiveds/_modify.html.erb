@@ -7,6 +7,6 @@
                 <div class="tr td emark_column"></div>
                 <div class="tr td function_row">
                     <span><%= f.submit "保存", class: "btn"%></span>
-                    <span class="btn"><%= link_to("削除", url: "receiveds/delete", remote: true)%></span>
+                    <span class="btn"><%= link_to("削除", received_path(@received.id),method: :delete , remote: true)%></span>
                 </div>
         <%end%>  
