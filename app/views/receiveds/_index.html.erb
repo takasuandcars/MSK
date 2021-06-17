@@ -1,35 +1,39 @@
-<div class="inside_tr_th">
-     <div class="intr inth received_data_column">入荷日</div>
-     <div class="intr inth awb-column">AWB</div>
-     <div class="intr inth invoice_column">INV</div>
-     <div class="intr inth thnumber_column">行数</div>
-     <div class="intr inth shipped_date_column">出荷日</div>
-     <div class="intr inth remark_column">備考</div>
-     <div class="intr inth function_column">機能</div>
+<div class="inside_table_box">
+              
+    <div class="inside_tr_th">
+         <div class="intr inth received_data_column">入荷日</div>
+         <div class="intr inth awb-column">AWB</div>
+         <div class="intr inth invoice_column">INV</div>
+         <div class="intr inth thnumber_column">行数</div>
+         <div class="intr inth shipped_date_column">出荷日</div>
+         <div class="intr inth remark_column">備考</div>
+         <div class="intr inth function_column">機能</div>
+     </div>
+     <div class="inside_tr_td" >
+          <%= form_with(url: pickup_requests_create_received_path(id: @received.pickup_request.id),scope: :received, method: :post, remote: true, class: "form_with_css") do |f| %>
+                    <div class="tr td received_data_row"><%= f.date_field :received_date %></div>
+                    <div class="tr td awb-row"><%= f.text_field :awb %></div>
+                    <div class="tr td invoice_row"><%= f.text_field :invoice %></div>
+                    <div class="tr td number_row"><%= f.text_field :number_of_order %></div>
+                    <div class="tr td shipped_date_row"><%= f.date_field :shipped_date %></div>
+                    <div class="tr td emark_column"></div>
+                    <div class="tr td function_row">
+                        <span><%= f.submit "保存", class: "btn"%></span>
+                    </div>
+            <%end%>  
+     </div>
+     <% @received_datas.each  do  |data|%>
+          <div class="inside_tr_td" id=<%= "data_#{data.id}" %>>
+            <div class="intr intd received_data_row"><%= data.received_date%></div>
+            <div class="intr intd awb-row"><%= data.awb%></div>
+            <div class="intr intd invoice_row"><%= data.invoice%></div>
+            <div class="intr intd number_row"><%= data.number_of_order%></div>
+            <div class="intr intd shipped_date_row"><%= data.shipped_date%></div>
+            <div class="intr intd emark_column"></div>
+            <div class="intr intd function_row">
+                <span><%= link_to "編集", receveds_modify_path(id: data.id), remote: true %></span>
+            </div>
+          </div>
+     <%end%>
+ 
  </div>
- <div class="inside_tr_td" >
-      <%= form_with(url: pickup_requests_create_received_path(id: @received.pickup_request.id),scope: :received, method: :post, remote: true, class: "form_with_css") do |f| %>
-                <div class="tr td received_data_row"><%= f.date_field :received_date %></div>
-                <div class="tr td awb-row"><%= f.text_field :awb %></div>
-                <div class="tr td invoice_row"><%= f.text_field :invoice %></div>
-                <div class="tr td number_row"><%= f.text_field :number_of_order %></div>
-                <div class="tr td shipped_date_row"><%= f.date_field :shipped_date %></div>
-                <div class="tr td emark_column"></div>
-                <div class="tr td function_row">
-                    <span><%= f.submit "保存", class: "btn"%></span>
-                </div>
-        <%end%>  
- </div>
- <% @received_datas.each  do  |data|%>
-      <div class="inside_tr_td" id=<%= "data_#{data.id}" %>>
-        <div class="intr intd received_data_row"><%= data.received_date%></div>
-        <div class="intr intd awb-row"><%= data.awb%></div>
-        <div class="intr intd invoice_row"><%= data.invoice%></div>
-        <div class="intr intd number_row"><%= data.number_of_order%></div>
-        <div class="intr intd shipped_date_row"><%= data.shipped_date%></div>
-        <div class="intr intd emark_column"></div>
-        <div class="intr intd function_row">
-            <span><%= link_to "編集", receveds_modify_path(id: data.id), remote: true %></span>
-        </div>
-      </div>
- <%end%>

@@ -3,7 +3,7 @@
 document.addEventListener("turbolinks:load" ,function () {
     
     $('.btn-receiveds').on("click", function(){
-       var insideBox = $(this).closest(".tr_box").next('.inside_table_box');
+       var insideBox = $(this).closest(".tr_box").next('.inside_table_box_background');
        if (insideBox.is(':visible')){
            insideBox.slideUp("fast");
            $(this).text("▶")

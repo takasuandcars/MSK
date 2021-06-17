@@ -4,20 +4,30 @@
 h2 {
     text-align: center;
 }
-
+.inside_table_box_background{
+   padding: 1px;
+   display: none;
+   background: #DCDCDC;
+   height: 100%;
+}
 
 .inside_table_box {
   width: 900px;
   border-collapse: separate;
   border-spacing: 0;
   margin: 10px auto;
-  display: none;
+  
+ 
 
 }
 .inside_tr_th {
   display: flex;
   height: 20px;
   font-size: 12px;
+}
+
+.inside_tr_td {
+ background: white;
 }
 
 .inside_table_box .inth:first-child {
@@ -70,6 +80,7 @@ h2 {
 }
 
 .tr_box_td {
+   
     height: 25px;
 }
 
