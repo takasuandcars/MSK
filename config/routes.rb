@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     get "/pdf", to: "record_pdfs#index"
     get "/pickup_requests/index", to: "pickup_requests#index"
     get "pickup_requests/edit", to: "pickup_requests#edit"
+    post "pickup_requests/create_received", to: "pickup_requests#create_received"
 
 end

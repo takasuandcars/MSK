@@ -8,7 +8,7 @@
      <div class="intr inth function_column">機能</div>
  </div>
  <div class="inside_tr_td" >
-      <%= form_with(model: @received, remote: true, class: "form_with_css") do |f| %>
+      <%= form_with(url: pickup_requests_create_received_path(id: @received.pickup_request.id),scope: :received, method: :post, remote: true, class: "form_with_css") do |f| %>
                 <div class="tr td received_data_row"><%= f.date_field :received_date %></div>
                 <div class="tr td awb-row"><%= f.text_field :awb %></div>
                 <div class="tr td invoice_row"><%= f.text_field :invoice %></div>

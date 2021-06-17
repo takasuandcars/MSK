@@ -13,6 +13,13 @@ class PickupRequestsController < ApplicationController
 
     end
     
+    def create_received
+        @pickup_data = PickupRequest.find_by(id: params[:id])
+        @received_datas = @pickup_data.receiveds.all
+        @received = @pickup_data.receiveds.build(pickup_params_receiveds)
+        @received.save
+    end
+    
     def create
         p = PickupRequest.new(pickup_params)
         p.save
@@ -48,5 +55,10 @@ class PickupRequestsController < ApplicationController
         def pickup_params
          params.require(:pickup_request).permit(:pickup_date, :arrange, :car_number, 
                                                 :received, :number_of_total_order, :number_of_car, :car_type, :weight)
+        end
+        
+        def pickup_params_receiveds
+           params.require(:received).permit(:received_date, :awb, :invoice, :inspection, 
+                             :shipping, :shipped_date, :number_of_order, :pickup_request_id ) 
         end
 end
