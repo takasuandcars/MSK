@@ -1,5 +1,8 @@
 
-        <div class="tr td pickup_date_row"><%= @pickup_request.pickup_date%></div>
+        <div class="tr td pickup_date_row">
+            <%= link_to "▶", receiveds_index_box_path(id: @pickup_request.id),  class: "btn-receiveds", remote: true %>
+            <%= @pickup_request.pickup_date%>
+        </div>
         <div class="tr td car_type_row"><%= @pickup_request.car_type%></div>
         <div class="tr td number_of_car_row"><%= @pickup_request.number_of_car%></div>
         <div class="tr td number_of_total_order_row"><%= @pickup_request.number_of_total_order%></div>
