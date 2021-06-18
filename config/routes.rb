@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
     get 'events/index', to: "events#index"
+    get 'events/pickup', to: "events#pickup"
+    get 'events/received', to: "events#received"
+    
     get 'record_pdfs/index'
     root "static_pages#index"
     get 'receiveds', to: "receiveds#index"

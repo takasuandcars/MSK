@@ -5,5 +5,5 @@ json.array!(@events) do |event|
   json.end event.pickup_date
   json.url events_index_url(id: event.id, format: :html)
   json.className ["pickup-request-mark"]
-  json.color "red"
+  json.color "skybule"
 end

@@ -19,7 +19,9 @@ document.addEventListener('turbolinks:load', function() {
             display: 'background',
             className: 'holiday',
           },
-          '/events/index.json'
+          '/events/index.json',
+          '/events/pickup.json',
+          '/events/received.json'
         ],
 
         //細かな表示設定
