@@ -4,7 +4,8 @@
                 <div class="tr td invoice_row"><%= f.text_field :invoice %></div>
                 <div class="tr td number_row"><%= f.text_field :number_of_order %></div>
                 <div class="tr td shipped_date_row"><%= f.date_field :shipped_date %></div>
-                <div class="tr td emark_column"></div>
+                <div class="tr td emark_column">
+                </div>
                 <div class="tr td function_row">
                     <span><%= f.submit "保存", class: "btn"%></span>
                     <span class="btn"><%= link_to("削除", received_path(@received.id),method: :delete , remote: true)%></span>
