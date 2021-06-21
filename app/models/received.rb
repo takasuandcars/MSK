@@ -11,8 +11,8 @@ class Received < ApplicationRecord
     # パラメータを指定して検索を実行する
     awb_is(search_params[:awb])
       .inv_is(search_params[:inv])
-      .date_from(search_params[:date_from])
-      .date_to(search_params[:date_to])
+      .date_from(search_params[:start_day])
+      .date_to(search_params[:end_day])
     end
       # awbが存在する場合、awbをlike検索する
       scope :awb_is, -> (awb) { where('awb LIKE ?', "%#{awb}%") if awb.present? }

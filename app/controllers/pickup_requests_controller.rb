@@ -2,14 +2,10 @@ class PickupRequestsController < ApplicationController
     
     
     def index
-       
-        @pickup_request = PickupRequest.new
-        if  params[:search].nil? 
-            @datas = PickupRequest.all
-        else
-           @datas = PickupRequest.where(pickup_date: (params[:search][:start_day])..(params[:search][:end_day]))
-
-        end
+        
+        @pickup_request = Received.new
+        @search_params = pickup_search_params
+        @datas = PickupRequest.search(@search_params)
 
     end
     
@@ -60,5 +56,9 @@ class PickupRequestsController < ApplicationController
         def pickup_params_receiveds
            params.require(:received).permit(:received_date, :awb, :invoice, :inspection, 
                              :shipping, :shipped_date, :number_of_order, :pickup_request_id ) 
+        end
+        
+        def pickup_search_params
+            params.fetch(:search, {}).permit(:car_type, :start_day, :end_day)
         end
 end

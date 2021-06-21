@@ -57,7 +57,7 @@ class ReceivedsController < ApplicationController
                              :shipping, :shipped_date, :number_of_order, :pickup_request_id )
             end
             def received_search_params
-                params.fetch(:search, {}).permit(:awb, :inv, :received_date)
+                params.fetch(:search, {}).permit(:awb, :inv, :start_day, :end_day)
             end
     
     
