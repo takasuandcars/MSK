@@ -2,7 +2,8 @@ class ReceivedsController < ApplicationController
     
     def index
         @received = Received.new
-        @datas = Received.all
+        @search_params = received_search_params
+        @datas = Received.search(@search_params)
     end
     
     def index_box_in
@@ -54,6 +55,9 @@ class ReceivedsController < ApplicationController
             def received_params
                 params.require(:received).permit(:received_date, :awb, :invoice, :inspection, 
                              :shipping, :shipped_date, :number_of_order, :pickup_request_id )
+            end
+            def received_search_params
+                params.fetch(:search, {}).permit(:awb, :inv, :received_date)
             end
     
     
