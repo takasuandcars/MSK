@@ -1,6 +1,6 @@
 class PickupRequest < ApplicationRecord
     has_many :receiveds
-    
+    default_scope -> { order(pickup_date: :desc) }
     scope :search, -> (search_params) do
     # search_paramsが空の場合以降の処理を行わない。
     # >> {}.blank?

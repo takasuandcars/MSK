@@ -1,6 +1,7 @@
 class Received < ApplicationRecord
     belongs_to :pickup_request, required: false
     
+    default_scope -> { order(received_date: :desc) }
     
     scope :search, -> (search_params) do
     # search_paramsが空の場合以降の処理を行わない。
