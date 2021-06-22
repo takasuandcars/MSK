@@ -18,7 +18,8 @@ class EventsController < ApplicationController
   
   def received
     
-    @events = Received.all.where(pickup_request_id: nil)
+    @events = Received.select('id','received_date', 'number_of_order').where(pickup_request_id: nil).group(:received_date).sum(:number_of_order) 
+  
     respond_to do | format |
       format.html
       format.json
