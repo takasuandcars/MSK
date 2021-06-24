@@ -19,4 +19,9 @@ class PickupRequest < ApplicationRecord
       scope :date_from, -> (from) { where('? <= pickup_date', from) if from.present? }
       scope :date_to, -> (to) { where('pickup_date <= ?', to) if to.present? }
       
+      
+    def total_order
+      self.receiveds.all.sum(:number_of_order)
+    end
+      
 end
