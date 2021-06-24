@@ -3,10 +3,17 @@ class PickupRequestsController < ApplicationController
     
     def index
         
-        @pickup_request = Received.new
+        @pickup_request = PickupRequest.new
         @search_params = pickup_search_params
         @datas = PickupRequest.search(@search_params)
 
+    end
+    
+        
+    def create
+        p = PickupRequest.new(pickup_params)
+        p.save
+        redirect_to pickup_requests_index_path
     end
     
     def create_received
@@ -15,13 +22,7 @@ class PickupRequestsController < ApplicationController
         @received = @pickup_data.receiveds.build(pickup_params_receiveds)
         @received.save
     end
-    
-    def create
-        p = PickupRequest.new(pickup_params)
-        p.save
-      
-        redirect_to root_url
-    end
+
     
     def update
         @pickup_request = PickupRequest.find_by(id: params[:id])
