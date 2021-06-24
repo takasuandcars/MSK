@@ -3,7 +3,7 @@ class ReceivedsController < ApplicationController
     def index
         @received = Received.new
         @search_params = received_search_params
-        @datas = Received.search(@search_params).page(params[:page]).per(15)
+        @datas = Received.search(@search_params).page(params[:page]).per(20)
     end
     
     def index_box_in

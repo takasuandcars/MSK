@@ -5,7 +5,7 @@ class PickupRequestsController < ApplicationController
         
         @pickup_request = PickupRequest.new
         @search_params = pickup_search_params
-        @datas = PickupRequest.search(@search_params).page(params[:page]).per(15)
+        @datas = PickupRequest.search(@search_params).page(params[:page]).per(20)
 
     end
     
