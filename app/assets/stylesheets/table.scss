@@ -108,3 +108,15 @@ h2 {
   
   
 }
+
+// pagination
+.pagination-box{
+  width: 1000px;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+  
+  .pagination{
+    margin-bottom: 0;
+  }
+}

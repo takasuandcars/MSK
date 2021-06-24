@@ -5,7 +5,7 @@ class PickupRequestsController < ApplicationController
         
         @pickup_request = PickupRequest.new
         @search_params = pickup_search_params
-        @datas = PickupRequest.search(@search_params)
+        @datas = PickupRequest.search(@search_params).page(params[:page]).per(15)
 
     end
     
@@ -18,7 +18,7 @@ class PickupRequestsController < ApplicationController
     
     def create_received
         @pickup_data = PickupRequest.find_by(id: params[:id])
-        @received_datas = @pickup_data.receiveds.all
+        @received_datas = @pickup_data
         @received = @pickup_data.receiveds.build(pickup_params_receiveds)
         @received.save
     end
