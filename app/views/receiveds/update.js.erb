@@ -1,5 +1,6 @@
 $("#data_<%= @received.id%>").html("<%= escape_javascript(render('/receiveds/update')) %>");
 
+
 <% if @received.pickup_request_id != nil %>
-    $("#data_<%= @received.id%>").find('.number_of_total_order_row').html("<%= escape_javascript(render('/receiveds/update2')) %>");
+    $("#data_<%= @received.pickup_request_id%>").find('.number_of_total_order_row').html("<%= escape_javascript(render('/receiveds/update2')) %>");
 <% end %>
