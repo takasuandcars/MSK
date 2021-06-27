@@ -1,0 +1,37 @@
+<h1 class="title">スタッフ一覧</h1>
+
+<div class="sub-title">
+        
+</div>
+<div class="search-box-container">
+
+    
+</div>
+<div class="pagination-box">
+<%= paginate @datas%>
+</div>
+
+<div class="datas" >
+
+    <div class="table table_box">
+      <div class="tr_box tr_box_th">
+        <div class="tr th id_column">ID</div>
+        <div class="tr th name_column">名前</div>
+        <div class="tr th level_column">レベル</div>
+        <div class="tr th function_column">機能</div>
+      </div>
+      <% @datas.each  do  |data|%>
+      <div class="tr_box data_show tr_box_td" id=<%= "data_#{data["id"]}" %>>
+        <div class="tr td id_row"><%= data.id %></div>
+        <div class="tr td name_row"><%= data.name %></div>
+        <div class="tr td level_row"><%= data.level %></div>
+        <div class="tr td function_row">
+            <span><%= link_to "編集", receveds_modify_path(id: data["id"]), remote: true %></span>
+        </div>
+      </div>
+      <%end%>
+    </div>
+
+  
+</div>
+

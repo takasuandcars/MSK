@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+    get 'staffs/index'
     resources :users
     get 'events/index', to: "events#index"
     get 'events/pickup', to: "events#pickup"
