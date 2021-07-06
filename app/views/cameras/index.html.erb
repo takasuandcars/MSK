@@ -1,0 +1,14 @@
+  
+ 
+ 
+  <div class="camera">
+     <h1>QR読み取り</h1>
+    <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
+    <canvas id="canvas" hidden></canvas>
+    <div id="output" hidden>
+      <div id="outputMessage">No QR code detected.</div>
+      <div hidden><b>Data:</b> <span id="outputData"></span></div>
+    </div>
+  </div>
+<%= javascript_pack_tag "qrcamera/jsqr" %>  
+<%= javascript_pack_tag "qrcamera/jsqrinhtml" %>
