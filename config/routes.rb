@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'qrcode/index'
     get '/qrcode', to: "qrcode#index"
     get 'cameras/index', to: "cameras#index"
     get 'staffs/index'
