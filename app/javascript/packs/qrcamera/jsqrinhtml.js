@@ -1,4 +1,5 @@
 /*global navigator */
+/*global KeyboardEvent*/
 import jsQR from "./jsqr";
 
     var video = document.createElement("video");
@@ -47,7 +48,8 @@ import jsQR from "./jsqr";
           drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
-          outputData.innerText = code.data;
+          outputData.value = code.data;
+          document.getElementById("form-qr").submit();
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;
