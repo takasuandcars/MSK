@@ -49,7 +49,8 @@ import jsQR from "./jsqr";
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
           outputData.value = code.data;
-          document.getElementById("form-qr").submit();
+          document.getElementById("form-qr").submit(); //　QRを読み込んだらGETアクション
+          video.stop();  // video エレメントをストップする
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;
