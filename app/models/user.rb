@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     # validates :email, uniqueness: {case_sensitive: true}
-    
+    has_many :work_times
     before_create :qrno
     
  
