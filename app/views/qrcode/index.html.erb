@@ -1,9 +1,12 @@
+<div class="work-page-container">
+    <h1><%= @u.name if @u%></h1>
+    <h2><%= @show %></h2>
+    
+    <div class="chartbox">
+    <canvas id="myChart" width="400" height="400"></canvas>
 
-<h1><%= @u.name if @u%></h1>
-<h2><%= @show %></h2>
+</div>
 
-<div class="chartbox">
-<canvas id="myChart" width="400" height="400"></canvas>
 <script>
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
