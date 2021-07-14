@@ -8,32 +8,40 @@
 </div>
 
 <script>
+function getMonday( date ) {
+    var day = date.getDay() || 7;  
+    if( day !== 1 ) 
+        date.setHours(-24 * (day - 1)); 
+    return date;
+}
+
+m = getMonday(new Date());
+tu = m + 1
+we = m + 2
+th = m + 3
+fr = m + 4
+
+
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    data:
+        {
+        labels: [`${m}`, '火', '水', '木', '金'],
         datasets: [{
-            label: '# of Votes',
+            label: 'work-hours',
             data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            },
+            {
+            label: "number_of_total_order",
+            data: [100, 30, 40, 250, 14],
+            backgroundColor: 'rgba(99, 255, 132, 0.2)',
+            borderColor: 'rgba(99, 255, 132, 1)',
             borderWidth: 1
-        }]
+           }]
     },
     options: {
         scales: {
