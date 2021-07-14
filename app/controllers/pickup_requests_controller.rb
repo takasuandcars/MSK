@@ -51,7 +51,7 @@ class PickupRequestsController < ApplicationController
     private
         def pickup_params
          params.require(:pickup_request).permit(:pickup_date, :arrange, :car_number, 
-                                                :received, :number_of_total_order, :number_of_car, :car_type, :weight, :cbm)
+                                                :received, :number_of_total_order, :number_of_car, :car_type, :weight, :cbm, :note)
         end
         
         def pickup_params_receiveds

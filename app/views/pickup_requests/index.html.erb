@@ -19,6 +19,8 @@
                 <%=f.label :cbm %>
                 <%=f.text_field :cbm %>
                 
+                <%=f.label :note %>
+                <%=f.text_field :note %>
                 
                 <%= f.label :number_of_total_order %>
                 <%= f.text_field :number_of_total_order %>
@@ -71,7 +73,7 @@
         <div class="tr td number_of_total_order_row"><%= data.total_order%></div>
         <div class="tr td weight_row"><%= data.weight%></div>
         <div class="tr td cbm_row"><%= data.cbm %></div>
-        <div class="tr td remark_column"></div>
+        <div class="tr td remark_column"><%= data.note %></div>
         <div class="tr td function_row">
             <span><%= link_to "編集", pickup_requests_edit_path(id: data.id), remote: true %></span>
             <span><%= link_to "PDF", pdf_path(format: :pdf, id: data.id), local: true %></span>
