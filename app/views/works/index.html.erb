@@ -8,35 +8,26 @@
 </div>
 
 <script>
-function getMonday( date ) {
-    var day = date.getDay() || 7;  
-    if( day !== 1 ) 
-        date.setHours(-24 * (day - 1)); 
-    return date;
-}
-
-m = getMonday(new Date());
-tu = m + 1
-we = m + 2
-th = m + 3
-fr = m + 4
-
-
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data:
         {
-        labels: [`${m}`, '火', '水', '木', '金'],
+        labels: ["<%= @monday.strftime("%m月%d日") %>",
+                 "<%= (@monday + 1).strftime("%m月%d日") %>", 
+                 "<%= (@monday + 2).strftime("%m月%d日") %>",
+                 "<%= (@monday + 3).strftime("%m月%d日") %>",
+                 "<%= (@monday + 4).strftime("%m月%d日") %>"],
         datasets: [{
             label: 'work-hours',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [<%= @work.id %>, <%= @work.id + 100 %>, 3, 5, 2, 3],
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgba(255, 99, 132, 1)',
             },
             {
             label: "number_of_total_order",
+            type: "line",
             data: [100, 30, 40, 250, 14],
             backgroundColor: 'rgba(99, 255, 132, 0.2)',
             borderColor: 'rgba(99, 255, 132, 1)',
