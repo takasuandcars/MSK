@@ -1,0 +1,46 @@
+<div class="work-page-container">
+    <h1>人時／週間</h1>
+    <h2></h2>
+    
+    <div class="chartbox">
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+</div>
+
+<script>
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data:
+        {
+        labels: ["<%= @monday.strftime("%m月%d日") %>",
+                 "<%= (@monday + 1).strftime("%m月%d日") %>", 
+                 "<%= (@monday + 2).strftime("%m月%d日") %>",
+                 "<%= (@monday + 3).strftime("%m月%d日") %>",
+                 "<%= (@monday + 4).strftime("%m月%d日") %>"],
+        datasets: [{
+            label: 'work-hours',
+            data: [<%= @work.id %>, <%= @work.id + 100 %>, 3, 5, 2, 3],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            },
+            {
+            label: "number_of_total_order",
+            type: "line",
+            data: [100, 30, 40, 250, 14],
+            backgroundColor: 'rgba(99, 255, 132, 0.2)',
+            borderColor: 'rgba(99, 255, 132, 1)',
+            borderWidth: 1
+           }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+</div>

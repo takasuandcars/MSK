@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
     get 'works/index'
+    get 'works/data', to: "works#data"
     get 'works/show'
     get '/qrcode', to: "qrcode#index"
     get 'cameras/index', to: "cameras#index"
