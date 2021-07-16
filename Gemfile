@@ -8,6 +8,7 @@ gem "jquery-rails"
 gem 'prawn'
 gem 'prawn-table'
 
+gem "holiday_jp"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
 # Use postgresql as the database for Active Record
