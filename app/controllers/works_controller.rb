@@ -28,6 +28,44 @@ class WorksController < ApplicationController
   def show
   end
   
+  def self.getworkday(d)
+    while HolidayJp.holiday?(d) do
+            d = d + 1
+    end
+        
+        day = d.wday
+         
+        if day < 6
+            return d
+        elsif day == 6
+            d = d + 2
+            return d
+        else
+            d = d + 1
+            return d
+        end
+       
+  end
+  
+  def self.getworkdayend(d)
+    while HolidayJp.holiday?(d) do
+            d = d + 1
+    end
+        
+        day = d.wday
+         
+        if day < 6
+            return d + 1
+        elsif day == 6
+            d = d + 2
+            return d + 1
+        else
+            d = d + 1
+            return d + 1
+        end
+       
+  end
+  
   private
     def params_works
       params.require(:work_time).permit(:start, :end) 
