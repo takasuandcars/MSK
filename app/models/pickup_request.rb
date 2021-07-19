@@ -1,5 +1,6 @@
 class PickupRequest < ApplicationRecord
     has_many :receiveds
+    has_many :work_schedules
     default_scope -> { order(pickup_date: :desc) }
     
     scope :search, -> (search_params) do

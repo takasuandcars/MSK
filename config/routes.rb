@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-    resources :works
+    resources :work_schedules
+    get 'works/edit', to: "works#edit"
+    patch 'works', to: "works#update"
+    get 'works', to: "works#index"
     get 'works/data', to: "works#data"
     get '/qrcode', to: "qrcode#index"
     get 'cameras/index', to: "cameras#index"

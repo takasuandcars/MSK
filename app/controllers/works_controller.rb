@@ -2,8 +2,9 @@ class WorksController < ApplicationController
   def data
     @work = WorkTime.first
     @day = Date.today
-    
     @monday = @day - (@day.wday - 1)
+    
+    
     
   end
   
@@ -23,6 +24,7 @@ class WorksController < ApplicationController
     @data = WorkTime.find_by(id: params[:id])
     @name = @data.user.name
     @data.update_attributes(params_works)
+    
   end
 
   def show

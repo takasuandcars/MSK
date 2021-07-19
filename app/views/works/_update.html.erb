@@ -5,5 +5,5 @@
         <div class="tr td shipped_date_row"><%= @data.hours %></div>
 
         <div class="tr td function_row">
-            <span><%= link_to "編集", edit_work_path(id: @data.id), remote: true %></span>
+            <span><%= link_to "編集", works_edit_path(id: @data.id), remote: true %></span>
         </div>
