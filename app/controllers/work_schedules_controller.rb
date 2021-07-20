@@ -24,7 +24,9 @@ class WorkSchedulesController < ApplicationController
         
     end
     
-    def delete
+    def destroy
+        date = WorkSchedule.find_by(id: params[:id])
+        date.destroy
     end
     
     private
