@@ -1,10 +1,18 @@
-<% @datas.each  do  |data|%>
-<div id="<%= data.id %>"><%=data.workdate%></div>
-<% end %>
-<div class="add"><%= form_with model: @new, remote: true do |f|%></div>
+
+<div class="add">
+<%= form_with url: work_schedules_path(id: @new.pickup_request.id), scope: :worktime, remote: true do |f|%>
 
 <%= f.label :workdate %>
 <%= f.date_field :workdate %>
 
 <%= f.submit "ボタン"%>
 <% end %>
+</div>
+
+<div class="workdates">
+<% @datas.each  do  |data|%>
+<div id="<%= data.id %>">
+    <%=data.workdate%>
+</div>
+<% end %>
+</div>

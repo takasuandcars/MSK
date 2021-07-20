@@ -1,3 +1,40 @@
 // Place all the styles related to the WorkSchedules controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.work_back {
+    display: none;
+    position: fixed;
+    top:0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.5);    
+}
+.work_container {
+    position: fixed;
+    top: 250px;
+    left: 40%;
+    height: 300px;
+    width: 400px;
+    background-color: rgb( 255, 255, 255);
+}
+
+.work_schedules {
+    margin: 0 auto;
+    border: 1px solid 1px lime;
+}
+
+.title {
+    margin: 0;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.close {
+    text-align: right;
+    padding: 0;
+    height: 24px;
+    width: 20px;
+    border: 2px solid black;
+    border-radius: 10%;
+}

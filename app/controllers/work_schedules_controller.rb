@@ -8,6 +8,11 @@ class WorkSchedulesController < ApplicationController
     
     
     def create
+        p = PickupRequest.find_by(id: params[:id])
+        @new = p.work_schedules.build(params_work_time)
+        @new.save
+        @datas = p.work_schedules
+        
     end
     
     
@@ -21,4 +26,9 @@ class WorkSchedulesController < ApplicationController
     
     def delete
     end
+    
+    private
+        def params_work_time
+            params.require(:worktime).permit(:workdate)
+        end
 end
