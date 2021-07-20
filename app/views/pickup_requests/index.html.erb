@@ -19,6 +19,9 @@
                 <%=f.label :cbm %>
                 <%=f.text_field :cbm %>
                 
+                <%=f.label :ctn %>
+                <%=f.text_field :ctn %>
+                
                 <%=f.label :note %>
                 <%=f.text_field :note %>
                 
@@ -59,6 +62,8 @@
         <div class="tr th number_of_total_order">行数</div>
         <div class="tr th weight">重量</div>
         <div class="tr th cbm">CBM</div>
+        <div class="tr th ctn">CTN</div>
+        
         <div class="tr th remark_column">備考</div>
         <div class="tr th function_column">機能</div>
       </div>
@@ -73,6 +78,8 @@
         <div class="tr td number_of_total_order_row"><%= data.total_order%></div>
         <div class="tr td weight_row"><%= data.weight%></div>
         <div class="tr td cbm_row"><%= data.cbm %></div>
+        <div class="tr td ctn_row"><%= data.ctn %></div>
+        
         <div class="tr td remark_column"><%= data.note %></div>
         <div class="tr td function_row">
             <span><%= link_to "編集", pickup_requests_edit_path(id: data.id), remote: true %></span>

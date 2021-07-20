@@ -5,6 +5,8 @@
                 <div class="tr td number_of_total_order_row"><%= @pickup_request.total_order %></div>
                 <div class="tr td weight_row"><%= f.text_field :weight %></div>
                 <div class="tr td cbm_row"><%= f.text_field :cbm %></div>
+                <div class="tr td ctn_row"><%= f.text_field :ctn %></div>
+                
                 <div class="tr td remark_column"><%= f.text_field :note%></div>
                 <div class="tr td function_row">
                     <span><%= f.submit "保存", class: "btn"%></span>
