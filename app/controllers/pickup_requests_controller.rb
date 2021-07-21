@@ -56,7 +56,7 @@ class PickupRequestsController < ApplicationController
         
         def pickup_params_receiveds
            params.require(:received).permit(:received_date, :awb, :invoice, :inspection, 
-                             :shipping, :shipped_date, :number_of_order, :pickup_request_id ) 
+                             :shipping, :shipped_date, :number_of_order, :pickup_request_id , :number) 
         end
         
         def pickup_search_params

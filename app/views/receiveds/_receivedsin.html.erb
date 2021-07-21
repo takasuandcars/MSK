@@ -3,6 +3,7 @@
      <% @receivedsin.each do |received| %>
      <li>
             <span class="reveiced_date">入荷予定日：<%= received.received_date%></span>
+            <span class="number">入荷予定No：<%= received.number %></span> 
             <span class="awb">AWB：<%= received.awb %></span> 
             <span class="invoice">Inv：<%= received["invoice"]%></span> 
             <span class="inspection">検品：<%= received.inspection %></span> 
