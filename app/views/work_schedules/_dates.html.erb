@@ -1,6 +1,6 @@
 <% @datas.each  do  |data|%>
 <% if !data.workdate.nil? %>
 <div id="<%= data.id %>">
-    <%=data.workdate%> <span><%= link_to "削除",work_schedule_path(id: data.id), method: :delete, remote: true %> </span>
+    <%=data.workdate%> <%= data.hours %><span><%= link_to "削除",work_schedule_path(id: data.id), method: :delete, remote: true %> </span>
 <% end %>
 <%end%>

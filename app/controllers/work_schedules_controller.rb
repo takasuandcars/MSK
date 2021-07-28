@@ -26,7 +26,9 @@ class WorkSchedulesController < ApplicationController
     
     def destroy
         date = WorkSchedule.find_by(id: params[:id])
+        @datas = date.pickup_request.work_schedules
         date.destroy
+        
     end
     
     private

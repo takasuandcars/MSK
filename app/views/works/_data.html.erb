@@ -1,0 +1,10 @@
+    <h1>人時／週間</h1>
+    <h2></h2>
+    
+    <div class="chartbox">
+    <canvas id="myChart"></canvas>
+    
+    <div class="nextandlastweek">
+        <div id="lastweek"><%= link_to "◀", url: "/works/data", paradate: @day - 7 , remote: true%></div>
+        <div id="nextweek"><%= link_to "▶", url: "/works/data", paradate: @day + 7 , remote: true%></div>
+    </div>
