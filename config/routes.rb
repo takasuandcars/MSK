@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+    get 'login', to: "sessions#new"
+    post 'login', to: "sessions#create"
+    delete 'logout', to: "sessions#destroy"
     resources :work_schedules
     get 'works/edit', to: "works#edit"
     patch 'works', to: "works#update"

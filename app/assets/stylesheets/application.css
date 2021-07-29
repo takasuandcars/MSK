@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+.messages {
+    position: absolute;
+    top: 50px;
+    padding-left: 150px;
+    width: 100%;
+    text-align: center;
+}
+.messages-container {
+    width: 500px;
+    
+    margin: 0 auto;
+    height: 100px;
+
+}
+
+.alert {
+    width: 500px;
+    margin: 0 auto;
+}

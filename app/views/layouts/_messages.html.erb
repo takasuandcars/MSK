@@ -1,0 +1,14 @@
+    <div class="messages-container">
+    <% if !flash[:danger].nil?%>
+         <div class="alert alert-danger">
+             <%= flash[:danger] %>
+             
+         </div>
+     <%end%>
+     
+     <% if !flash[:success].nil? %>
+         <div class="alert alert-success">
+         <%= flash[:success] %>
+         </div>
+     <%end%>
+    </div>
