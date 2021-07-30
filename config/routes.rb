@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
     get 'login', to: "sessions#new"
     post 'login', to: "sessions#create"
     delete 'logout', to: "sessions#destroy"
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
     get 'events/received', to: "events#received"
     
     get 'record_pdfs/index'
-    root "static_pages#index"
+    root "sessions#new"
     get 'receiveds', to: "receiveds#index"
     get 'receiveds/index_box', to: "receiveds#index_box_in"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

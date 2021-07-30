@@ -1,5 +1,18 @@
     <header>
-    <h1>
-        <a href="/"><%= image_tag 'logo.PNG', width: "20px", height: "20px" %>  MSK</a>
-    </h1>
+    <div class="title">
+        <h1>
+            <a href="/", id="titleword">MSK</a>
+        </h1>
+        <% if @current_user %>
+         <div class="header-right">
+             <div class="user-name">
+             <p><%= @current_user.name %> </p>
+             </div>
+             <div class="logout">
+                 <%= link_to "ログアウト", logout_path,  method: :delete %>
+             </div>
+         </div> 
+        <%end%>
+    </div>
+   
     </header>

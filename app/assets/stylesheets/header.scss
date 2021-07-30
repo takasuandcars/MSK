@@ -7,11 +7,36 @@ header {
    top: 0;
    z-index: 10;
   
-   a {
-      display: inline-block;
-       height: 30px;
-       color: white;
-       vertical-align: middle;
+  .header-right{
+     
+  
+      a {
+         margin-left: 15px;
+         font-size: 15px;
+         display: inline-block;
+         color: white;
+         vertical-align: middle;
+      }
+  }
+
+   h1 {
+         a {
+            margin-left: 15px;
+            font-size: 30px;
+            display: inline-block;
+            color: white;
+            vertical-align: middle;
+         }
    }
 
+}
+.user-name{
+    color: white;
+    font-size: 15px;
+    vertical-align: center;
+   
+    p{
+       padding-top: 5px;
+       margin: auto 0;
+    }
 }

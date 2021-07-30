@@ -16,11 +16,14 @@
   </head>
 
   <body>
+    <% current_user %>
+    
     <section class="header"><%= render 'layouts/header' %></section>
     <section class="messages"><%= render 'layouts/messages' %></section>
   
     <section class="main">
         <%= render 'layouts/left-sidebar' %>
+     
         
         <section class="main-container"><%= yield %></section>
         

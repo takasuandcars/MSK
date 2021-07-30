@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   include SessionsHelper
-  
+  skip_before_action :login_check, only:[:new, :create, :destroy]
   def new
   end
   
@@ -11,13 +11,17 @@ class SessionsController < ApplicationController
       flash[:success] = "ログインしました"
       redirect_to root_url
     else
-      flash[:danger] = "ログインに失敗しました"
+      flash.now[:danger] = "ログインに失敗しました"
       
       render 'new'
     end
   end
 
   def destroy
+    log_out
+    redirect_to root_url
+    
+    
   end
 
 end
