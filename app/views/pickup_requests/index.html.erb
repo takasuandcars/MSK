@@ -1,53 +1,56 @@
 <div class="sub-title">
-        <button class="make_button", id="pickup_request_button">航空貨物</button>    
-        <!--mok-start-create-pickup-->
-        <div class="pickup_request", style="display:none", id="pickup_request_form">
-            <%= form_with model: @pickup_request, local: true do |f| %>
-            
-                <%= f.label :pickup_date %>
-                <%= f.date_field :pickup_date %>
-                
-                <%= f.label :car_type %>
-                <%= f.text_field :car_type %>
-                
-                <%= f.label :number_of_car %>
-                <%= f.text_field :number_of_car %>
-                
-                <%= f.label :weight %>
-                <%= f.text_field :weight %>
-                
-                <%=f.label :cbm %>
-                <%=f.text_field :cbm %>
-                
-                <%=f.label :ctn %>
-                <%=f.text_field :ctn %>
-                
-                <%=f.label :note %>
-                <%=f.text_field :note %>
-                
-                <%= f.label :number_of_total_order %>
-                <%= f.text_field :number_of_total_order %>
-                
-                <%= f.submit "ボタン"%>
-                
-            <% end %>
-            
-            
-            
-        </div>
+
         
-        <!--search-box-->
-        <div class="search-box-container">
-            
-            <%= form_with scope: :search, url: '/pickup_requests/index', method: :get, local: true do |f| %>
-            <%= f.date_field :start_day , class: "search-start-day"%>
-            <span>〜</span>
-            <%= f.date_field :end_day, class: "search-end-day" %>
-            <%= f.label :car_type, "車種", class: "search-car-type"%>
-            <%= f.text_field :car_type %>
-            <%= f.submit '検索', class: "search-btn" %>
-            <% end %>
-        </div>
+
+</div>
+
+<button class="make_button", id="pickup_request_button">航空貨物</button>    
+<!--mok-start-create-pickup-->
+<div class="pickup_request", style="display:none", id="pickup_request_form">
+    <%= form_with model: @pickup_request, local: true do |f| %>
+    
+        <%= f.label :pickup_date %>
+        <%= f.date_field :pickup_date %>
+        
+        <%= f.label :car_type %>
+        <%= f.text_field :car_type %>
+        
+        <%= f.label :number_of_car %>
+        <%= f.text_field :number_of_car %>
+        
+        <%= f.label :weight %>
+        <%= f.text_field :weight %>
+        
+        <%=f.label :cbm %>
+        <%=f.text_field :cbm %>
+        
+        <%=f.label :ctn %>
+        <%=f.text_field :ctn %>
+        
+        <%=f.label :note %>
+        <%=f.text_field :note %>
+        
+        <%= f.label :number_of_total_order %>
+        <%= f.text_field :number_of_total_order %>
+        
+        <%= f.submit "ボタン"%>
+        
+    <% end %>
+    
+    
+    
+</div>
+<!--search-box-->
+<div class="search-box-container">
+    
+    <%= form_with scope: :search, url: '/pickup_requests/index', method: :get, local: true do |f| %>
+    <%= f.date_field :start_day , class: "search-start-day"%>
+    <span>〜</span>
+    <%= f.date_field :end_day, class: "search-end-day" %>
+    <%= f.label :car_type, "車種", class: "search-car-type"%>
+    <%= f.text_field :car_type %>
+    <%= f.submit '検索', class: "search-btn" %>
+    <% end %>
 </div>
 <div class="pagination-box">
 <%= paginate @datas%>

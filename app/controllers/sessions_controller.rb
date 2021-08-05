@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       login(user)
       flash[:success] = "ログインしました"
-      redirect_to root_url
+      redirect_to user_path(user)
     else
       flash.now[:danger] = "ログインに失敗しました"
       
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
-    redirect_to root_url
+    redirect_to login_path
     
     
   end

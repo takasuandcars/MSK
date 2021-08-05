@@ -1,7 +1,9 @@
 <h1 class="title">データ一覧</h1>
 
 <div class="sub-title">
-        <button class="make_button", id="received_button">クーリエ</button>
+       
+</div>
+ <button class="make_button", id="received_button">クーリエ</button>
         <!--mok_start-create-received-->
         <div class="received", style="display:none", id="received_form">
                 
@@ -33,7 +35,6 @@
                 
             <% end %>
         </div>
-</div>
 <div class="search-box-container">
     <%= form_with url: receiveds_path, scope: :search, local: true, method: :get do |f| %>
     <%= f.date_field :start_day , class: "search-start-day"%>

@@ -3,8 +3,9 @@ class ApplicationController < ActionController::Base
     before_action :login_check
     
     def login_check
-        if !logged_in?
+         if current_user.nil?
             redirect_to root_url
-        end
+         end
+         
     end
 end
