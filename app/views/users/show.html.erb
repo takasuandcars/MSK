@@ -1,0 +1,57 @@
+<div class="user-container">
+  <div class="user-info">
+  <div class="user-name"><%= @user.name %></div>
+  <span class="user-modify"><%= link_to "編集", edit_user_path(@user), local: true %></span>  
+  <span class="user-status"></span>
+  </div>
+  
+  
+  <div class="user-data">
+    <div class="user-level user-box">
+      <h3>Staff Level</h3>
+      <div class="image">
+        <%= image_tag 'bronze.png', :size => '100x100'%>
+      </div>
+    </div>
+    <div class="user-hours user-box">Work Hours/Month
+      <div>
+        <p id="hours", class="numbers"></p>
+      </div>
+    </div>
+    <div class="user-days user-box">Work Days/Month
+      <div>
+        <p id="days", class="numbers"></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="user-calendar">
+    <h3>Work Schedule</h3>
+    <div id='calendar'></div>
+    
+    <%= javascript_pack_tag 'calendar/event-2' %>
+      
+</div>
+
+<script>
+/*global $*/ 
+var num = 0;
+var hours = <%= @work_hours %>;
+var days = <%= @work_days %>;
+var speed = 1;
+setInterval(function(){
+if(num <= hours){
+	$('#hours').html(num);
+	num++;
+}
+},speed);
+
+setInterval(function(){
+if(num <= days){
+	$('#days').html(num);
+	num++;
+}
+},speed);
+
+
+</script>

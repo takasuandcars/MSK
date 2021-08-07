@@ -28,4 +28,10 @@ class EventsController < ApplicationController
       format.json
     end
   end
+  
+  # user-info
+  def work_hours
+     @user = User.find_by(id: current_user.id)
+     @events = @user.work_times
+  end
 end

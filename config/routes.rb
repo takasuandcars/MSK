@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+    get 'events/work_hours', to: "events#work_hours"
     get 'login', to: "sessions#new"
     post 'login', to: "sessions#create"
     delete 'logout', to: "sessions#destroy"

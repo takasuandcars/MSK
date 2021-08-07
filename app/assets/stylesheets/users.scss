@@ -1,3 +1,68 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.user-container{
+    width: 1100px;
+    height: 800px;
+    margin: 50px auto;
+    
+    .user-name{
+        color: black;
+        width: 500px;
+        margin: 15px auto;
+        text-align: center;
+        font-size: 30px;
+    }
+    
+    .user-data{
+        display: flex;
+        justify-content: space-around;
+        
+        .user-box{
+            width: 300px;
+            height: 150px;
+            text-align: center;
+            padding-top: 15px;
+            
+            h3{
+                margin: 0;
+            }
+        }
+        
+        .user-level{
+        }
+        
+        .user-hours{
+        }
+        
+        .user-days{
+        }
+       
+    }
+    
+     .user-calendar{
+         margin-top: 20px;
+         width: 100%;
+         height: 700px;
+         
+         #calendar{
+             width: 100%;
+             height: 600px;
+             padding-top: 10px;
+         }
+     }
+     
+     
+.numbers {
+    
+    font-size: 80px;
+}
+
+.user-data{
+    margin: 0 100px;
+    border: 1px solid;
+    border-radius: 50px;
+}
+    
+}
