@@ -17,8 +17,7 @@ document.addEventListener("turbolinks:load" ,function () {
     });
     
     $('#pickup_request_button').on("click", function(){
-       $('#pickup_request_form').slideToggle("fast");
-       $('#received_form').hide();
+       $('#pickup_request_form').show();
     });
     
     $('.show_button').on("click", function(){

@@ -1,0 +1,76 @@
+// Place all the styles related to the receiveds controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.pickup_request {
+    display: none;
+    position: fixed;
+    top:0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.5);   
+    z-index: 10;
+}
+.input-box {
+    position: fixed;
+    top: 150px;
+    left: 40%;
+    padding: 30px;
+    height: 500px;
+    width: 500px;
+    background-color: rgb( 255, 255, 255);
+    border-radius: 30px;
+    z-index: 11;
+    
+    h2{
+        margin-bottom: 20px;
+    }
+    label{
+        display: block;
+    }
+    input{
+        display: block;
+    }
+    
+    .input-data{
+        margin: 10px;
+        height: 50px;
+    }
+    .data-box{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 0 auto;
+        width: 400px;
+        height: 300px;
+    }
+    .btn {
+        margin-top: 30px;
+        width : 450px;
+    }
+    
+    .btn:hover{
+        background: skyblue;
+        color: white;
+    }
+    
+    .far{
+        float: right;
+        color: grey;
+        
+    }
+    
+    .far:hover{
+        color: black;
+    }
+}
+
+.make_button {
+    margin-right: 30px;
+    float: right;
+    
+}
+.button-box-new{
+    width: 100%;
+    height: 20px;
+}

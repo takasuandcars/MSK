@@ -4,40 +4,53 @@
 
 </div>
 
-<button class="make_button", id="pickup_request_button">航空貨物</button>    
+   
 <!--mok-start-create-pickup-->
 <div class="pickup_request", style="display:none", id="pickup_request_form">
-    <%= form_with model: @pickup_request, local: true do |f| %>
+    <div class="input-box">
+    <i class="far fa-times-circle fa-lg closeicon"></i>
+    <div class="pickup-title"><h2>集荷データ作成</h2></div>
     
-        <%= f.label :pickup_date %>
-        <%= f.date_field :pickup_date %>
+    <%= form_with model: @pickup_request, class: "data-box", local: true do |f| %>
+        <div class="pickup_date input-data">
+            <%= f.label :pickup_date %>
+            <%= f.date_field :pickup_date %>
+        </div>   
+        <div class="car_type input-data">
+            <%= f.label :car_type %>
+            <%= f.text_field :car_type %>
+        </div>
+        <div class="number_of_car input-data">
+            <%= f.label :number_of_car %>
+            <%= f.text_field :number_of_car %>
+        </div>
+        <div class="weight input-data">
+            <%= f.label :weight %>
+            <%= f.text_field :weight %>
+        </div>
+        <div class="cbm input-data">
+            <%=f.label :cbm %>
+            <%=f.text_field :cbm %>
+        </div>
+        <div class="ctn input-data">
+            <%=f.label :ctn %>
+            <%=f.text_field :ctn %>
+        </div>
+        <div class="note input-data">
+            <%=f.label :note %>
+            <%=f.text_field :note %>
+        </div>
+        <div class="number_of_total_order input-data">
+            <%= f.label :number_of_total_order %>
+            <%= f.text_field :number_of_total_order %>
+        </div>
+        <%= f.submit "作成", class: "btn" %>
         
-        <%= f.label :car_type %>
-        <%= f.text_field :car_type %>
-        
-        <%= f.label :number_of_car %>
-        <%= f.text_field :number_of_car %>
-        
-        <%= f.label :weight %>
-        <%= f.text_field :weight %>
-        
-        <%=f.label :cbm %>
-        <%=f.text_field :cbm %>
-        
-        <%=f.label :ctn %>
-        <%=f.text_field :ctn %>
-        
-        <%=f.label :note %>
-        <%=f.text_field :note %>
-        
-        <%= f.label :number_of_total_order %>
-        <%= f.text_field :number_of_total_order %>
-        
-        <%= f.submit "ボタン"%>
+    
         
     <% end %>
-    
-    
+  
+   </div> 
     
 </div>
 <!--search-box-->
@@ -54,6 +67,9 @@
 </div>
 <div class="pagination-box">
 <%= paginate @datas%>
+</div>
+<div class="button-box-new">
+    <button class="make_button", id="pickup_request_button">集荷データ作成</button> 
 </div>
 <div class="datas" >
 
@@ -103,7 +119,7 @@
 <div class="work_back">
 <div class="work_container">
 <div class="work_schedules">
-    <div class="close">X</div>
+    <i class="far fa-times-circle fa-lg close"></i>
     <div class="title">作業日程</div>
     <div class="insert-box">
         
@@ -120,4 +136,7 @@
         $(".work_back").css('display', 'none');
     })
     
+    $(".closeicon").click(function(){
+        $("#pickup_request_form").css('display', 'none');
+    })
 </script>
