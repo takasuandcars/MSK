@@ -4,6 +4,15 @@ class ReceivedsController < ApplicationController
         @received = Received.new
         @search_params = received_search_params
         @datas = Received.search(@search_params).page(params[:page]).per(20)
+        respond_to do |format|
+          format.html
+          format.xlsx do
+            # ファイル名をここで指定する（動的にファイル名を変更できる）
+            @search_params = params[:data]
+            @excels = Received.search(@search_params)
+            response.headers['Content-Disposition'] = "attachment; filename=#{Date.today}.xlsx"
+           end
+        end
     end
     
     def index_box_in

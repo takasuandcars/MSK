@@ -60,7 +60,7 @@
 <%= paginate @datas%>
 </div>
 <div class="function-box">
-    <div class="excel"><button class="make_button"><%= link_to "Excel出力", pickup_requests_index_path(data: @search_params, format: :xlsx) %></button></div>
+    <div class="excel"><button class="make_button"><%= link_to "Excel出力", receiveds_path(data: @search_params, format: :xlsx) %></button></div>
     <div class="button-box-new">
        <button class="make_button", id="received_button">クーリエデータ作成</button> 
     </div>

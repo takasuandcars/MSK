@@ -1,0 +1,6 @@
+wb = xlsx_package.workbook
+sheet = wb.add_worksheet(name: "クーリエデータ")
+sheet.add_row [ "No.", "日付", "AWB", "INV" ]
+@excels.each_with_index do |excel, index|
+    sheet.add_row [ excel.number, excel.received_date, excel.awb, excel.invoice ]
+end
