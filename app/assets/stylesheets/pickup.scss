@@ -67,11 +67,27 @@
 }
 
 .make_button {
-    margin-right: 30px;
-    float: right;
+    
     
 }
 .button-box-new{
-    width: 100%;
     height: 20px;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.function-box {
+    width: 100%;
+    text-align: right;
+    
+    .excel {
+        display : inline-block;
+        margin-right: 5px;
+        a {
+            color: black;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+    }
 }
