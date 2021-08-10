@@ -7,4 +7,22 @@
     width: 1000px;
     text-align: center;
     margin: 0 auto;
+    
+    input{ 
+        width: 150px
+    }
+    
+    .search-btn {
+        width: 50px;
+    }
+}
+
+.page-title {
+    width: 1000px;
+    margin: 20px auto 50px;
+    .title {
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+    }
 }

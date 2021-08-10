@@ -18,13 +18,13 @@ class ReceivedsController < ApplicationController
             
             r = Received.new(received_params)
             r.save
-            redirect_to root_url
+            redirect_to receiveds_path
         else
             
             r = p.Received.build(received_params)
             r.save
             
-            redirect_to root_url
+            redirect_to receiveds_path
         end
     end
     

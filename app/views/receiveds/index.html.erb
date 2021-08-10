@@ -1,40 +1,44 @@
-<h1 class="title">データ一覧</h1>
-
-<div class="sub-title">
-       
+<div class="page-title">
+    <h1 class="title">クーリエデータ一覧</h1>
 </div>
- <button class="make_button", id="received_button">クーリエ</button>
-        <!--mok_start-create-received-->
-        <div class="received", style="display:none", id="received_form">
-                
-            <%= form_with model: @received , local: true do |f| %>
-            
-                <%= f.label :received_date, "日付" %>
-                <%= f.date_field :received_date %>
-                
-                <%= f.label :awb %>
-                <%= f.text_field :awb %>
-                
-                <%= f.label :invoice %>
-                <%= f.text_field :invoice %>
-                
-                <%= f.label :inspection %>
-                <%= f.check_box :inspection %>
-                
-                <%= f.label :shipping %>
-                <%= f.check_box :shipping %>
-                
-                <%= f.label :number_of_order %>
-                <%= f.text_field :number_of_order %>
-                
-                <%= f.label :shipping_date %>
-                <%= f.date_field :shipping_date %>
-                
-                
-                <%= f.submit %>
-                
-            <% end %>
+
+<!--mok_start-create-received-->
+<div class="create-new-data", style="display:none", id="received_form">
+    <div class="input-box">
+        <i class="far fa-times-circle fa-lg closeicon"></i>
+        <div class="pickup-title"><h2>クーリエデータ作成</h2></div>
+        
+        <%= form_with model: @received , class: "data-box", local: true do |f| %>
+        <div class=" input-data">
+            <%= f.label :received_date, "日付" %>
+            <%= f.date_field :received_date %>
         </div>
+        <div class=" input-data">
+            <%= f.label :awb %>
+            <%= f.text_field :awb %>
+        </div>
+        <div class=" input-data">
+            <%= f.label :invoice %>
+            <%= f.text_field :invoice %>
+        </div>
+        <div class=" input-data">
+            <%= f.label :number %>
+            <%= f.text_field :number %>
+        </div>
+        <div class=" input-data">
+            <%= f.label :number_of_order %>
+            <%= f.text_field :number_of_order %>
+        </div>    
+        <div class=" input-data">
+            <%= f.label :shipping_date %>
+            <%= f.date_field :shipping_date %>
+        </div>
+            
+            <%= f.submit "作成", class: "btn" %>
+            
+        <% end %>
+    </div>
+</div>
 <div class="search-box-container">
     <%= form_with url: receiveds_path, scope: :search, local: true, method: :get do |f| %>
     <%= f.date_field :start_day , class: "search-start-day"%>
@@ -54,6 +58,9 @@
 <!--mok-start-show-->
 <div class="pagination-box">
 <%= paginate @datas%>
+</div>
+<div class="button-box-new">
+    <button class="make_button", id="received_button">クーリエデータ作成</button>
 </div>
 <div class="datas" >
 
@@ -93,3 +100,13 @@
 
   
 </div>
+
+<script>
+    $(".close").click(function(){
+        $(".work_back").css('display', 'none');
+    })
+    
+    $(".closeicon").click(function(){
+        $("#received_form").css('display', 'none');
+    })
+</script>

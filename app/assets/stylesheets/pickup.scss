@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.pickup_request {
+.create-new-data {
     display: none;
     position: fixed;
     top:0;
@@ -30,6 +30,7 @@
     }
     input{
         display: block;
+        width: 170px;
     }
     
     .input-data{
