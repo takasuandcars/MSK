@@ -2,6 +2,12 @@ class SessionsController < ApplicationController
   include SessionsHelper
   skip_before_action :login_check, only:[:new, :create, :destroy]
   def new
+    current_user
+    if logged_in?
+      redirect_to user_path(@current_user)
+    else
+      render file: "/sessions/new"
+    end
   end
   
   def create
