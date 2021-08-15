@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+    post 'direct_messages', to: "direct_messages#create"
+    resources :rooms
     get 'events/work_hours', to: "events#work_hours"
     get 'login', to: "sessions#new"
     post 'login', to: "sessions#create"

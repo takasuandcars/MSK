@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       login(user)
+      cookies.encrypted[:user_id_for_chat] = user.id
       flash[:success] = "ログインしました"
       redirect_to user_path(user)
     else
@@ -25,6 +26,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
+    cookies.encrypted[:user_id_for_chat] = nil
     redirect_to login_path
     
     
