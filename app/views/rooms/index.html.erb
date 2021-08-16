@@ -1,21 +1,21 @@
 <div class="page-title">
-    <h1 class="title">チャットルーム</h1>
+    <h1 class="title">チャットルーム一覧</h1>
 </div>
 
-<div class="chat-container">
-    <div class="chat-box", id="chatbox">
-        <% @messages.each do |message| %>
-         <%= render 'messages/messages' , message: message %>
+<div class="chat-shows-containers">
+    <div class="chat-rooms", id="chatbox">
+        <% @entries.each do |entry| %>
+         <%= render 'rooms/entries' , entry: entry %>
         <% end %>
     </div>
 </div>
-<%= form_with model: @message , method: :post do |f| %>
-    <div class="chat-new input-group mb-3">
-        <%= f.text_field :content, placeholder: "Say Something...", class: "form-control" %>
+<%= form_with model: @room , method: :post do |f| %>
+    <div class="room-new input-group mb-3">
+        <%= f.text_field :name, placeholder: "create new room!", class: "form-control" %>
     
-    <div class="input-group append">
-        <%= f.submit "Send", class: "btn btn-primary" %>
-    </div>
-    
+        <div class="input-group append">
+            <%= f.submit "Send", class: "btn btn-primary" %>
+        </div>
+        
     </div>
 <%end%>

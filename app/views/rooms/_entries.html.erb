@@ -1,0 +1,14 @@
+ <div class="entry">
+  <div class="room-name">
+     Room Name: <%= entry.room.name %>
+  </div>
+  
+  <div class="room-users">
+    <% entry.room.entries.each do |entry| %>
+    <div class="room-user">
+     Users: <%= entry.user.name %>
+    </div>
+      
+    <% end %>
+  </div>
+ </div>

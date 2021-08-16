@@ -16,7 +16,7 @@ document.addEventListener("turbolinks:load" ,function () {
     });
     
     $('#pickup_request_button').on("click", function(){
-       $('#pickup_request_form').show();
+       $('.create-new-data').show();
     });
     
     $('.show_button').on("click", function(){

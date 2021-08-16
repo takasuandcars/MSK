@@ -7,6 +7,7 @@ gem "jquery-rails"
 gem 'caxlsx_rails'
 gem 'prawn'
 gem 'prawn-table'
+gem 'gon'
 
 gem "holiday_jp"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

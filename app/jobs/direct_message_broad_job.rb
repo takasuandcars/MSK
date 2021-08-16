@@ -3,7 +3,7 @@ class DirectMessageBroadJob < ApplicationJob
 
   def perform(message)
     # Do something later
-    ActionCable.server.broadcast "chat", { message: render_message(message) }
+    ActionCable.server.broadcast( "chat", { message: render_message(message) })
   end
   
   private

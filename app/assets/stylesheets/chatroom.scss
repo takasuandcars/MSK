@@ -1,0 +1,33 @@
+.chat-rooms{
+    background: skyblue;
+}
+
+.entry{
+    background: pink;
+    height: 50px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    display: flex;
+    
+    
+}
+
+.room-users{
+    font-size: 15px;
+    display: inline-block;
+    height: 100%;
+    background: white;
+    padding: 28px 5px 5px 5px;
+    margin-left: 10px;
+    
+}
+
+.room-name {
+    font-size: 20px;
+    padding: 9px 5px 5px 5px;
+    display: inline-block;
+    height: 100%;
+    width: 400px;
+    margin-left: 15px;
+    vertical-align: middle;
+}
