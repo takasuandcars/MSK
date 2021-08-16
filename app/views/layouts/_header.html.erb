@@ -6,7 +6,7 @@
         <% if @current_user %>
          <div class="header-right">
              <div class="user-name">
-             <%= link_to @current_user.name, user_path(@current_user) , class: "user-name" %>
+             <%= link_to @current_user.name, user_path(@current_user) , class: "user-name" , data: {"turbolinks" => false}%>
              </div>
              <div class="logout">
                  <%= link_to "ログアウト", logout_path,  method: :delete %>

@@ -4,10 +4,10 @@
     <%= link_to "ダッシュボード", "#" %>
     <%= link_to "集荷依頼", pickup_requests_index_path %>
     <%= link_to "入荷予定", receiveds_path %>
-    <%= link_to "カレンダー", "/events/index" %>
-    <%= link_to "QR読み取り", "/cameras/index" %>
-    <%= link_to "ワークタイム", "/works/data" %>
-    <%= link_to "勤怠", "/works" %>
+    <%= link_to "カレンダー", "/events/index" , data: {"turbolinks" => false}%>
+    <%= link_to "QR読み取り", "/cameras/index" , data: {"turbolinks" => false}%>
+    <%= link_to "ワークタイム", "/works/data" , data: {"turbolinks" => false}%>
+    <%= link_to "勤怠", "/works", data: {"turbolinks" => false} %>
     <%= link_to "チャット", rooms_path %>
     <%= link_to "チャットルーム", "#" %>
     <%end%>

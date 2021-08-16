@@ -1,8 +1,30 @@
 #chatbox {
     width: 800px;
-    height: 500px;
+    height: 300px;
     overflow-y: scroll;
-    margin: 30px auto;
+    margin: 10px auto ;
+    border: 2px solid rgba(192, 192, 192, 0.5);
+    border-radius: 5px;
+    padding: 10px;
+    
+}
+
+.chat-new {
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    
+    .form-control{
+        width: 700px!important;
+        display: inline-block;
+    }
+    
+    .btn{
+        margin-left: 18px;
+        width: 80px;
+        display: inline-block;
+    }
+    
 }
 
 .users-chat {
@@ -31,4 +53,9 @@
 .users-chat:hover{
     border-bottom: 1px solid rgba(137, 189, 222, .6);
     color: skyblue;
+}
+
+.add-user-container {
+    width: 800px;
+    margin: 0 auto;
 }

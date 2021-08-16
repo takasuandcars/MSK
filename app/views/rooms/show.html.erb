@@ -1,7 +1,11 @@
 <div class="page-title">
     <h1 class="title">チャットルーム</h1>
 </div>
-
+<div class="add-user-container">
+    <div class="button-box-new">
+        <button class="make_button", id="pickup_request_button">ユーザーを招待</button> 
+    </div>
+</div>
 <div class="chat-container">
     <div class="chat-box", id="chatbox">
         <% @messages.each do |message| %>
@@ -10,28 +14,28 @@
     </div>
 </div>
 <%= form_with model: @message , method: :post do |f| %>
-    <div class="chat-new input-group mb-3">
-        <%= f.text_field :content, placeholder: "Say Something...", class: "form-control" %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-        
+<div class="chat-new input-group mb-3">
+    <%= f.text_field :content, placeholder: "Say Something...", class: "form-control" %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+    
     <div class="input-group append">
         <%= f.submit "Send", class: "btn btn-primary" %>
     </div>
-    </div>
+</div>
 <%end%>
 
 <div class="invite-users create-new-data", id="pickup_request_form">
     <div class="input-box">
     <i class="far fa-times-circle fa-lg closeicon"></i>
     <%= form_with model: @entry , method: :post do |f| %>
-    <div class="chat-new input-group mb-3">
+    <div class="input-group mb-3">
         <% @users.each do |user| %>
         <div class="users-chat">
         <p class="check-box-user"><%= user.name %></p>
-        <%= f.check_box :user_ids, class: "add-user-checkbpx" %>
+        <%= f.check_box :user_ids,  { multiple: true}, user.id, nil%>
         </div>
         <% end %>
-        
+        <%= f.hidden_field :room_id, value: @room.id %>
     <div class="input-group append">
         <%= f.submit "Invite", class: "btn btn-primary" %>
     </div>
@@ -39,9 +43,8 @@
 <%end%>
 </div>
 </div>
-<div class="button-box-new">
-        <button class="make_button", id="pickup_request_button">集荷データ作成</button> 
-    </div>
+
+
 
 <script>
 
