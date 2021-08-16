@@ -4,3 +4,31 @@
     overflow-y: scroll;
     margin: 30px auto;
 }
+
+.users-chat {
+    border-bottom: 1px solid rgba(192, 192, 192, .6);
+    padding-left: 10px;
+    margin-top: 20px;
+    display: flex;
+
+ .add-user-checkbox {
+     width: 30px;
+ }
+ 
+ .check-box-user{
+     
+     width: 150px;
+     
+ }
+ 
+ p{
+     height: 20px;
+     display: inline-block;
+     vertical-align: middle;
+ }
+}
+
+.users-chat:hover{
+    border-bottom: 1px solid rgba(137, 189, 222, .6);
+    color: skyblue;
+}

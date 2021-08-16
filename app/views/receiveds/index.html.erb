@@ -3,7 +3,7 @@
 </div>
 
 <!--mok_start-create-received-->
-<div class="create-new-data", style="display:none", id="received_form">
+<div class="create-new-data", style="display:none", id="pickup_request_form">
     <div class="input-box">
         <i class="far fa-times-circle fa-lg closeicon"></i>
         <div class="pickup-title"><h2>クーリエデータ作成</h2></div>
@@ -106,11 +106,8 @@
 </div>
 
 <script>
-    $(".close").click(function(){
-        $(".work_back").css('display', 'none');
-    })
     
     $(".closeicon").click(function(){
-        $("#received_form").css('display', 'none');
+        $("#pickup_request_form").css('display', 'none');
     })
 </script>

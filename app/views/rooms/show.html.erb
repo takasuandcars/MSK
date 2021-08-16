@@ -20,15 +20,33 @@
     </div>
 <%end%>
 
-<div class="invite-users">
+<div class="invite-users create-new-data", id="pickup_request_form">
+    <div class="input-box">
+    <i class="far fa-times-circle fa-lg closeicon"></i>
     <%= form_with model: @entry , method: :post do |f| %>
     <div class="chat-new input-group mb-3">
-        <%= f.text_field :user_name, placeholder: "Write user-name", class: "form-control" %>
+        <% @users.each do |user| %>
+        <div class="users-chat">
+        <p class="check-box-user"><%= user.name %></p>
+        <%= f.check_box :user_ids, class: "add-user-checkbpx" %>
+        </div>
+        <% end %>
         
-    
     <div class="input-group append">
         <%= f.submit "Invite", class: "btn btn-primary" %>
     </div>
     </div>
 <%end%>
 </div>
+</div>
+<div class="button-box-new">
+        <button class="make_button", id="pickup_request_button">集荷データ作成</button> 
+    </div>
+
+<script>
+
+    
+    $(".closeicon").click(function(){
+        $("#pickup_request_form").css('display', 'none');
+    })
+</script>

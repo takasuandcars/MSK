@@ -14,6 +14,8 @@ class RoomsController < ApplicationController
         @message = current_user.direct_messages.new
         @entry = @room.entries.new
         gon.room_id = @room.id
+        @users = User.all
+        
         
     end
     

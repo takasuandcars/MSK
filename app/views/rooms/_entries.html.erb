@@ -1,6 +1,6 @@
  <div class="entry">
   <div class="room-name">
-     Room Name: <%= link_to entry.room.name, room_path(entry.room), local: true %>
+     Room Name: <%= link_to entry.room.name, room_path(entry.room), data: {"turbolinks" => false} %>
   </div>
   
   <div class="room-users">

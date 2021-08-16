@@ -11,7 +11,7 @@
 document.addEventListener("turbolinks:load" ,function () {
     
     $('#received_button').on("click", function(){
-       $('#received_form').show();
+       $('#pickup_request_form').show();
        
     });
     

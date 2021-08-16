@@ -1,5 +1,9 @@
  /* global $*/
 import consumer from "./consumer"
+if(typeof gon === "undefined"){
+  
+  console.log("gon is not defined")
+}else{
 
 consumer.subscriptions.create({channel: "ChatChannel", id: gon.room_id}, {
   connected() {
@@ -19,3 +23,4 @@ consumer.subscriptions.create({channel: "ChatChannel", id: gon.room_id}, {
     messages.scrollTop(messages[0].scrollHeight);
   }
 });
+}
