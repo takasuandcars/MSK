@@ -1,0 +1,34 @@
+<div class="page-title">
+    <h1 class="title">チャットルーム</h1>
+</div>
+
+<div class="chat-container">
+    <div class="chat-box", id="chatbox">
+        <% @messages.each do |message| %>
+         <%= render 'messages/messages' , message: message %>
+        <% end %>
+    </div>
+</div>
+<%= form_with model: @message , method: :post do |f| %>
+    <div class="chat-new input-group mb-3">
+        <%= f.text_field :content, placeholder: "Say Something...", class: "form-control" %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        
+    <div class="input-group append">
+        <%= f.submit "Send", class: "btn btn-primary" %>
+    </div>
+    </div>
+<%end%>
+
+<div class="invite-users">
+    <%= form_with model: @entry , method: :post do |f| %>
+    <div class="chat-new input-group mb-3">
+        <%= f.text_field :user_name, placeholder: "Write user-name", class: "form-control" %>
+        
+    
+    <div class="input-group append">
+        <%= f.submit "Invite", class: "btn btn-primary" %>
+    </div>
+    </div>
+<%end%>
+</div>

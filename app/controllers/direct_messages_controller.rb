@@ -6,6 +6,6 @@ class DirectMessagesController < ApplicationController
   
   private
   def params_new_message
-    params.require(:direct_message).permit(:content)
+    params.require(:direct_message).permit(:content, :room_id)
   end
 end

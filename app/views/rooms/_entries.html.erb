@@ -1,6 +1,6 @@
  <div class="entry">
   <div class="room-name">
-     Room Name: <%= entry.room.name %>
+     Room Name: <%= link_to entry.room.name, room_path(entry.room), local: true %>
   </div>
   
   <div class="room-users">
