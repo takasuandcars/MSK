@@ -30,17 +30,19 @@
     <%= form_with model: @entry , method: :post do |f| %>
     <div class="input-group mb-3">
         <% @users.each do |user| %>
-        <div class="users-chat">
-        <p class="check-box-user"><%= user.name %></p>
-        <%= f.check_box :user_ids,  { multiple: true}, user.id, nil%>
-        </div>
+            <% if !entried?(user) %>
+                <div class="users-chat">
+                <p class="check-box-user"><%= user.name %></p>
+                <%= f.check_box :user_ids,  { multiple: true}, user.id, nil%>
+                </div>
+            <%end%>
         <% end %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-    <div class="input-group append">
-        <%= f.submit "Invite", class: "btn btn-primary" %>
-    </div>
-    </div>
-<%end%>
+                <%= f.hidden_field :room_id, value: @room.id %>
+            <div class="input-group append">
+                <%= f.submit "Invite", class: "btn btn-primary" %>
+            </div>
+            </div>
+        <%end%>
 </div>
 </div>
 
