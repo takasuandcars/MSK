@@ -19,4 +19,13 @@ class RoomsController < ApplicationController
         
     end
     
+    def create
+        @room = Room.new(name: params[:room][:name])
+        if @room.valid?
+            @room.save
+            @entry = current_user.entries.new(room_id: @room.id)
+            @entry.save
+        end
+    end
+    
 end
