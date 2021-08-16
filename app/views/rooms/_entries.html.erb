@@ -1,14 +1,16 @@
  <div class="entry">
   <div class="room-name">
-     Room Name: <%= link_to entry.room.name, room_path(entry.room), data: {"turbolinks" => false} %>
+     <%= link_to entry.room.name, room_path(entry.room), data: {"turbolinks" => false} %>
   </div>
   
   <div class="room-users">
+   <div class="room-user">
+    Users:
     <% entry.room.entries.each do |entry| %>
-    <div class="room-user">
-     Users: <%= entry.user.name %>
+    <span class="user-names"><%= entry.user.name %></span>
+     <% end %>
     </div>
       
-    <% end %>
+    
   </div>
  </div>
