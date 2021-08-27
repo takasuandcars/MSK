@@ -27,7 +27,7 @@ var myChart = new Chart(ctx, {
                  "<%= (@monday + 4).strftime("%m月%d日") %>"],
         datasets: [{
             label: 'work-hours',
-            data: [<%= @work.id %>, <%= @work.id + 100 %>, 3, 5, 2, 3],
+            data: [10, 100, 3, 5, 2, 3],
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgba(255, 99, 132, 1)',
             },

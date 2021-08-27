@@ -8,6 +8,12 @@ gem 'caxlsx_rails'
 gem 'prawn'
 gem 'prawn-table'
 gem 'gon'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
+gem 'rqrcode'
+gem 'rqrcode_png'
+gem 'chunky_png'
 
 gem "holiday_jp"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

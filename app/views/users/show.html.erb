@@ -1,6 +1,7 @@
 <div class="user-container">
   <div class="user-info">
-  <div class="user-name"><%= @user.name %></div>
+  <div class="user-name"><span class="qrcode-user"><img src ="<%= @qr_base64 %>"></span>    <%= @user.name %>  </div>
+ 
   <span class="user-status"></span>
   </div>
   
@@ -35,6 +36,7 @@
 <script>
 /*global $*/ 
 var num = 0;
+var numd = 0;
 var hours = <%= @work_hours %>;
 var days = <%= @work_days %>;
 var speed = 1;
@@ -46,9 +48,9 @@ if(num <= hours){
 },speed);
 
 setInterval(function(){
-if(num <= days){
-	$('#days').html(num);
-	num++;
+if(numd <= days){
+	$('#days').html(numd);
+	numd++;
 }
 },speed);
 

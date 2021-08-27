@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  
+  require 'rqrcode'
+  require 'rqrcode_png'
+  require 'chunky_png'
+
   def index
     @datas = User.all.page(params[:page]).per(20)
     
@@ -15,6 +20,17 @@ class UsersController < ApplicationController
     
     work_hours = work_data.sum(:hours)
     @work_hours = (work_hours - ( work_hours % 60)) / 60
-    @work_days = work_data.count
+    
+    content = @user.qrcode.to_s
+    size    = 3           # 1..40
+    level   = :h            # l, m, q, h
+    
+    qr = RQRCode::QRCode.new(content, size: size, level: level)
+    # png変換->リサイズ->base64エンコード
+    @qr_base64 = qr.as_png.resize(100, 100).to_data_url
+
+    
   end 
+  
+  
 end

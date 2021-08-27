@@ -1,6 +1,6 @@
 class WorksController < ApplicationController
   def data
-    @work = WorkTime.first
+    @work = nil
     if params[:paradate].nil?
       @day = Date.today
     else
