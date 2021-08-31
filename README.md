@@ -1,25 +1,37 @@
-# README
+概要
+物流管理システム
+https://merucha.com
+トラックの集荷依頼、作業量及びスタッフの勤怠の管理ができます。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+・集荷依頼（車種/台数等）
+・クーリエ入荷予定入力
+・作業量の可視化
+・勤怠管理
+・チャット
 
-Things you may want to cover:
 
-* Ruby version
+使用技術
+・Ruby 2.6.3
+・Rails 6.0.3.7
+・MySQL 5.2.4
+・Nginx
+・Unicorn
+・AWS
+　・VPC
+　・EC2
+　・Route53
+・Fullcalender
+・jsQR
+・Prawn
+・ChartJS
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# MSK
+機能一覧
+・ユーザー登録／ログイン機能
+・集荷依頼入力
+・集荷依頼PDF出力
+・クーリエデーター入力
+・勤怠管理
+（ユーザーのQRコードを読み込み、出退勤）
+・チャット機能（ActionCable）
+・検索機能
