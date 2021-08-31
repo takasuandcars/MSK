@@ -1,0 +1,29 @@
+<div class="page-title">
+    <h1 class="title">ユーザー作成</h1>
+</div>
+   
+        
+<div class="create-user-container">
+   <%= form_with model: @user, class: "data-box", local: true do |f| %>
+        <div class="pickup_date input-data">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        </div>   
+        <div class="car_type input-data">
+            <%= f.label :email %>
+            <%= f.email_field :email %>
+        </div>
+        <div class="number_of_car input-data">
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+        </div>
+        <div class="number_of_car input-data">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation %>
+        </div>
+        
+        <%= f.submit "作成", class: "btn" %>
+        
+    <% end %>
+    
+</div>

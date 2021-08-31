@@ -75,7 +75,7 @@
         <div class="tr th awb-column">AWB</div>
         <div class="tr th invoice_column">INV</div>
         <div class="tr th thnumber_column">行数</div>
-        <div class="tr th shipped_date_column">出荷日</div>
+        <div class="tr th shipped_date_column">航空会社</div>
         <div class="tr th remark_column">備考</div>
         <div class="tr th function_column">機能</div>
       </div>
@@ -86,7 +86,7 @@
         <div class="tr td awb-row"><%= data["awb"]%></div>
         <div class="tr td invoice_row"><%= data["invoice"]%></div>
         <div class="tr td number_row"><%= data["number_of_order"]%></div>
-        <div class="tr td shipped_date_row"><%= data["shipped_date"]%></div>
+        <div class="tr td shipped_date_row"><%= tracker("POST", data.awb) %></div>
         <div class="tr td emark_column">
         <% if  pickup_exist?(data.id)%>
         <%= "航空便　" %>

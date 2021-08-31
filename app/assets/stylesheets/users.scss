@@ -66,3 +66,32 @@
 }
     
 }
+
+.create-user-container{
+    border: 1px solid;
+    border-radius: 20px;
+    text-align: center;
+    width: 350px ;
+    margin: 30px auto;
+    padding: 30px;
+    
+    .input-data {
+        width: 450;
+        margin: 10px;
+        
+        label {
+            width: 200px;
+        }
+    }
+    
+    .btn {
+        margin-top: 30px;
+        width: 260px;
+        
+    }
+    
+    .btn:hover {
+        background: skyblue;
+    }
+}
+

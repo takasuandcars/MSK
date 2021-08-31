@@ -30,7 +30,30 @@ class UsersController < ApplicationController
     @qr_base64 = qr.as_png.resize(100, 100).to_data_url
 
     
-  end 
+  end
   
+  def new
+    @user = User.new
+  end
+  
+  def create
+    
+    @user = User.new(params_user)
+    if @user.valid?
+      @user.save
+      flash[:success] = "ユーザーを作成しました"
+      redirect_to user_path(@user)
+    else
+      flash[:danger] = "ユーザー作成に失敗しました"
+      redirect_to new_user_path 
+    end    
+    
+  end
+  
+  private
+    def params_user
+       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+       
+    end
   
 end

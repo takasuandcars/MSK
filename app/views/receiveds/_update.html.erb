@@ -4,7 +4,7 @@
         <div class="tr td awb-row"><%= @received.awb%></div>
         <div class="tr td invoice_row"><%= @received.invoice%></div>
         <div class="tr td number_row"><%= @received.number_of_order%></div>
-        <div class="tr td shipped_date_row"><%= @received.shipped_date%></div>
+        <div class="tr td shipped_date_row"><%= tracker("POST", @received.awb) %></div>
         <div class="tr td emark_column">
             <% if  pickup_exist?(@received.id)%>
             <%= "航空便　" %>
