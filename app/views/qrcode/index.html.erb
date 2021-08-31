@@ -8,6 +8,11 @@
 </div>
 
 <script>
+
+setTimeout(function(){
+  window.location.href = '<%= cameras_index_path %>';
+}, 2*1000);
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',

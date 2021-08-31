@@ -8,6 +8,6 @@ class EntriesController < ApplicationController
             entry = Entry.new(user_id: u, room_id: @room.id)
             entry.save
         end
-        
+        redirect_to room_path(@room)
     end
 end
