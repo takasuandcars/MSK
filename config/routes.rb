@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-    root "sessions#new"
-
+   # root "sessions#new"
+    root "site#index"
     post 'direct_messages', to: "direct_messages#create"
     resources :rooms
     resources :entries
