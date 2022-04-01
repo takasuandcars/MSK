@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+    root "sessions#new"
+
     post 'direct_messages', to: "direct_messages#create"
     resources :rooms
     resources :entries
@@ -20,7 +23,7 @@ Rails.application.routes.draw do
     get 'events/received', to: "events#received"
     
     get 'record_pdfs/index'
-    root "sessions#new"
+    
     get 'receiveds', to: "receiveds#index"
     get 'receiveds/index_box', to: "receiveds#index_box_in"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
