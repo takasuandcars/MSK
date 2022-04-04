@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
    # root "sessions#new"
-    root "site#index"
+    
     post 'direct_messages', to: "direct_messages#create"
     resources :rooms
     resources :entries
@@ -36,5 +36,28 @@ Rails.application.routes.draw do
     get "/pickup_requests/index", to: "pickup_requests#index"
     get "pickup_requests/edit", to: "pickup_requests#edit"
     post "pickup_requests/create_received", to: "pickup_requests#create_received"
+
+    #routes for react
+
+    root to: redirect('/home')
+    get '/home', to: "site#index"
+    get '/login_react', to: "site#index"
+
+
+    #copy from the site
+    post '/signup', to: 'registrations#signup'
+    post '/signup2', to: 'registrations#login'
+
+    #post '/login', to: 'sessions#login'
+    delete '/logout', to: 'sessions#logout'
+    get '/logged_in', to: 'sessions#logged_in?'
+    #end of copy
+    namespace :api do
+      namespace :v1 do
+        get '/site/index', to: 'site#index'
+        get '/auth', to: 'sessions#login'
+        #resources :todos, only: %i[index show create update destroy]
+      end
+    end
 
 end

@@ -10,7 +10,7 @@ gem 'prawn-table'
 gem 'gon'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-
+gem 'rack-cors'
 gem 'rqrcode'
 gem 'rqrcode_png'
 gem 'chunky_png'

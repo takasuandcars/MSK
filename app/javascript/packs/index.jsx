@@ -5,9 +5,12 @@ import App from '../components/App'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
+
+    
     <BrowserRouter>
       <App/>
-    </BrowserRouter>,
+    </BrowserRouter>
+    ,
     document.querySelector('#root'),
   );
 });
