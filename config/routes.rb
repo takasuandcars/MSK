@@ -42,15 +42,17 @@ Rails.application.routes.draw do
     root to: redirect('/home')
     get '/home', to: "site#index"
     get '/login_react', to: "site#index"
+    get '/dashboard', to: "site#index"
 
 
     #copy from the site
     post '/signup', to: 'registrations#signup'
     post '/signup2', to: 'registrations#login'
 
+  
     #post '/login', to: 'sessions#login'
     delete '/logout', to: 'sessions#logout'
-    get '/logged_in', to: 'sessions#logged_in?'
+    get '/login_check', to: 'site#logged_in?'
     #end of copy
     namespace :api do
       namespace :v1 do

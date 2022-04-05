@@ -57,6 +57,9 @@ def logged_in?
     end
 end
 
+
+
+
 private
 
     def session_params

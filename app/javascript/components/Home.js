@@ -10,7 +10,10 @@ function Home(props) {
     const [password, setPassword] = useState("")
 
     const handleSuccessfulAuthentication = (data) => {
+        console.log(props)
+        console.log(props.history)
         props.history.push("/dashboard")
+        console.log(props.history)
     }
     
 
@@ -39,7 +42,8 @@ function Home(props) {
     return (
     
     <div className="login-form-container">
-    <h2>ログイン状態: {props.loggedInStatus}</h2>
+        
+    <h2>ログイン状態: {props.loggedInStatus? "ログイン":"ログアウト"}</h2>
     <h1>ログイン</h1>
 
     <div className="login-form">
