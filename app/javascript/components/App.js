@@ -2,50 +2,79 @@ import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import Home from './Home'
+import SideBar from './SideBar'
+import NavBar from './NavBar'
 import Dashboard from './Dashboard'
 import axios from 'axios'
 
 
 
 function App() {
-
-  const [loggedInStatus, setLoggedInStatus] = useState(false)
+  const [loggedInStatus, setLoggedInStatus] = useState(gon.login_check)
   const [userStatus,setUserStatus] = useState({})
-  const loginCheck = () => {
+  const sleep = (waitMsec) => {
+    var startMsec = new Date();
+    while (new Date() - startMsec < waitMsec);
+  }
 
+  useEffect(()=>{
+    console.log("Effect開始")
+    loginCheck();
+    console.log("Effect終了")
+  },[loggedInStatus]);
+        
+
+  const loginCheck = () => {
+    console.log("ログインチェック開始")
     axios.get("/login_check", { withCredentials: true })
         .then(response => {
             if (response.data.logged_in) {
                 if(!loggedInStatus){
                   setLoggedInStatus(true);
-                  console.log("trueに変換")
-
-                  console.log(response.data.session)
-              
                   setUserStatus(response.data.user)
-                  console.log("user変更")
-                  
-                  
+                }else{
+                  setUserStatus(response.data.user)
                 }
             }else{
-              console.log(response.data.session)
-              console.log(response.data.message)
+              setLoggedInStatus(false);
+              setUserStatus({})
+            }   
+        }).catch(error => {
+            console.log("registration error", error)
+        }) 
+        console.log("ログインチェック終了")     
+  }
+
+  const logout = () => {
+    console.log("ログアウトコマンド")
+    axios.get("/lgout", { withCredentials: true })
+        .then(response => {
+            if (!response.data.logged_in) {
+                if(loggedInStatus){
+                  setLoggedInStatus(false)
+                  setUserStatus({})
+                }
+            }else{
+
             }   
         }).catch(error => {
             console.log("registration error", error)
         })
-
-        
-
+        console.log("ログアウトコマンド終了")
   }
-  useEffect( () => {
-    loginCheck();
-
-  },[loggedInStatus] )
   
    
   return (
-    <BrowserRouter>
+    <>
+    
+    <section className="header">
+      <NavBar   userStatus={userStatus} loggedInStatus={loggedInStatus} logout={logout}/>
+    </section>
+    <section className="left-sidebar">
+     <SideBar loggedInStatus={loggedInStatus} /*logout={logout()}*//>
+    </section>
+    <section className="main-container">
+      <BrowserRouter>
         <Switch>
           <Route 
           exact path={"/home"} 
@@ -60,6 +89,9 @@ function App() {
         </Switch>
 
     </BrowserRouter>
+    </section>
+    </>
+
   )
 }
 

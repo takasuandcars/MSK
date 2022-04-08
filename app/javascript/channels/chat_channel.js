@@ -3,9 +3,11 @@ import consumer from "./consumer"
 if(typeof gon === "undefined"){
   
   console.log("gon is not defined")
-}else{
+}else if(gon.room_id){
+
 
 consumer.subscriptions.create({channel: "ChatChannel", id: gon.room_id}, {
+  
   connected() {
     // Called when the subscription is ready for use on the server
     console.log("connected!!");
@@ -22,5 +24,6 @@ consumer.subscriptions.create({channel: "ChatChannel", id: gon.room_id}, {
     messages.append(data['message']);
     messages.scrollTop(messages[0].scrollHeight);
   }
+
 });
 }

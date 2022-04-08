@@ -51,7 +51,7 @@ Rails.application.routes.draw do
 
   
     #post '/login', to: 'sessions#login'
-    delete '/logout', to: 'sessions#logout'
+    get '/lgout', to: 'site#logout'
     get '/login_check', to: 'site#logged_in?'
     #end of copy
     namespace :api do
