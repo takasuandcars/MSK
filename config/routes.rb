@@ -62,4 +62,9 @@ Rails.application.routes.draw do
       end
     end
 
+    #mapplic
+    get '/map_json', to: 'site#map_json' #jsonfile for map
+    get '/map/:map', to: 'site#map'
+
+
 end

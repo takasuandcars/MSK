@@ -74,6 +74,7 @@ function App() {
      <SideBar loggedInStatus={loggedInStatus} /*logout={logout()}*//>
     </section>
     <section className="main-container">
+      <div className="display-container">
       <BrowserRouter>
         <Switch>
           <Route 
@@ -89,6 +90,7 @@ function App() {
         </Switch>
 
     </BrowserRouter>
+    </div>
     </section>
     </>
 

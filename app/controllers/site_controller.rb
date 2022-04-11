@@ -29,4 +29,16 @@ class SiteController < ApplicationController
         render json: {logged_in: false, user: nil, session: nil}
 
     end
+
+
+    #map plick 
+    def map_json
+        render template: "/mapplic/map.json"
+    end
+    def map
+
+        render template: "/mapplic/#{params[:map]}"
+    end
+
+
 end

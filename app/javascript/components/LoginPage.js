@@ -28,7 +28,7 @@ function LoginPage(props) {
         axios.post("/signup2", data , { withCredentials: true })
         .then(response => {
             if (response.data.status === 'created') {
-                console.log(response.data)
+            
                 handleSuccessfulAuthentication(response.data)
             }
         }).catch(error => {
