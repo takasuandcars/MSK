@@ -8,8 +8,8 @@ function LoggedinSideBar(props) {
     
 return (
     <>
-    
-      <a>ダッシュボード</a>
+      <a href="/qrread/index" >Qrcode</a>
+      <Link to="/qrread/index">Qrcode</Link>
       <a>集荷</a>
       <a>入荷予定</a>
       <a>カレンダー</a>

@@ -66,5 +66,8 @@ Rails.application.routes.draw do
     get '/map_json', to: 'site#map_json' #jsonfile for map
     get '/map/:map', to: 'site#map'
 
+  #QrRead
+    get 'qrread/index', to: "site#index"
+
 
 end

@@ -5,6 +5,7 @@ import Home from './Home'
 import SideBar from './SideBar'
 import NavBar from './NavBar'
 import Dashboard from './Dashboard'
+import QrRead from './QrRead'
 import axios from 'axios'
 
 
@@ -77,8 +78,12 @@ function App() {
       <div className="display-container">
       <BrowserRouter>
         <Switch>
+          
+          
+          {loggedInStatus && <Route exact path={"/dashboard"} component={Dashboard} />}
+          {loggedInStatus &&  <Route exact path={"/qrread/index"} component={QrRead}/>}
           <Route 
-          exact path={"/home"} 
+          
           render={props => (
               <Home { ...props } 
                 loggedInStatus={loggedInStatus}
@@ -86,7 +91,6 @@ function App() {
                 loginCheck={loginCheck}                
                 />)} 
           />
-          <Route exact path={"/dashboard"} component={Dashboard} />
         </Switch>
 
     </BrowserRouter>
