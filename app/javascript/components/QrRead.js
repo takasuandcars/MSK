@@ -2,14 +2,57 @@
 import React from 'react'
 import { useRef,useState, useEffect } from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import jsQR from "../packs/qrcamera/jsqr"
 
 
+toast.configure();
 
 function QrRead(props) {
     const [qrcode, setQrcode] = useState("")
     const [qrFlag, setqrFlag] = useState(false)
     const ref = useRef(null);
+
+    const notify = (res) => {
+        if(res.status === "start"){
+            toast.success(res.message, {
+            position: "top-center",
+            hideProgressBar: true,
+            autoClose: 1000,
+            });
+        }else if(res.status === "end"){
+                toast.success(res.message, {
+                position: "top-center",
+                hideProgressBar: true,
+                autoClose: 1000,
+                });
+
+        }else if(res.status === "error"){
+                toast.error(res.message, {
+                position: "top-center",
+                hideProgressBar: true,
+                autoClose: 1000,
+                });
+
+        }else if(res.status === "finished"){
+
+                toast.warning(res.message, {
+                position: "top-center",
+                hideProgressBar: true,
+                autoClose: 1000,
+                });
+        }else if(res.status === "nofound"){
+
+            toast.error(res.message, {
+            position: "top-center",
+            hideProgressBar: true,
+            autoClose: 1000,
+            });
+        }
+      }
+
+
     const handleSuccessfulAuthentication = (data) => {
         console.log("handleSuccessfulAuthentication");
         props.loginCheck();
@@ -37,7 +80,8 @@ function QrRead(props) {
 
         axios.post("/api/v1/qrcode", data , { withCredentials: true })
         .then(response => {
-            console.log("サーバーに通信しました。")
+            console.log(response)
+            notify(response.data[1]);
             console.log(response)
             if (response.data.status === 'created') {
             
