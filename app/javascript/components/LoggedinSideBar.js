@@ -9,7 +9,7 @@ function LoggedinSideBar(props) {
 return (
     <>
       <a href="/qrread/index" >Qrcode</a>
-      <Link to="/qrread/index">Qrcode</Link>
+      <a href="/works">勤怠データ</a>
       <a>集荷</a>
       <a>入荷予定</a>
       <a>カレンダー</a>

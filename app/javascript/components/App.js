@@ -6,6 +6,7 @@ import SideBar from './SideBar'
 import NavBar from './NavBar'
 import Dashboard from './Dashboard'
 import QrRead from './QrRead'
+import WorksTable from './WorksTable'
 import axios from 'axios'
 
 
@@ -82,6 +83,7 @@ function App() {
           
           {loggedInStatus && <Route exact path={"/dashboard"} component={Dashboard} />}
           {loggedInStatus &&  <Route exact path={"/qrread/index"} component={QrRead}/>}
+          {loggedInStatus &&  <Route exact path={"/works"} component={WorksTable}/>}
           <Route 
           
           render={props => (

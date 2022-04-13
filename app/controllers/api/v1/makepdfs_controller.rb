@@ -1,2 +1,0 @@
-class MakepdfsController < ApplicationController
-end

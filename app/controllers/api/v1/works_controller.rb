@@ -1,85 +1,48 @@
-class WorksController < ApplicationController
-  def data
-    @work = nil
-    if params[:paradate].nil?
-      @day = Date.today
-    else
-      @day = params[:paradate].to_date
-    end
-    @monday = @day - (@day.wday - 1)
-    
-    dates = WorkSchedule.where(workdate: @monday..@monday+4)
-    datesre = Received.where(received_date: @monday..@monday+4)
-    @modata = dates.where(workdate: @monday).sum(:hours)  + datesre.where(received_date: @monday).sum(:number_of_order)
-    @tudata = dates.where(workdate: @monday+1).sum(:hours) + datesre.where(received_date: @monday+1).sum(:number_of_order)
-    @wedata = dates.where(workdate: @monday+2).sum(:hours) + datesre.where(received_date: @monday+2).sum(:number_of_order)
-    @thdata = dates.where(workdate: @monday+3).sum(:hours) + datesre.where(received_date: @monday+3).sum(:number_of_order)
-    @frdata = dates.where(workdate: @monday+4).sum(:hours) + datesre.where(received_date: @monday+4).sum(:number_of_order)
-  end
-  
+class Api::V1::WorksController < ApplicationController
+
   def index
-    @datas = WorkTime.all.page(params[:page]).per(20)
-    
- 
-
-  end
-  
-  def edit
-    @data = WorkTime.find_by(id: params[:id])
-    @username = @data.user.name
-  end
-  
-  def update
-    @data = WorkTime.find_by(id: params[:id])
-    @name = @data.user.name
-    @data.update_attributes(params_works)
-    
+    @datas = User.joins(:work_times).select("users.name", "work_times.start","work_times.end", "work_times.hours")
+    render json: @datas
   end
 
-  def show
-  end
-  
-  def self.getworkday(d)
-    while HolidayJp.holiday?(d) do
-            d = d + 1
+def create
+  if @qr = params[:qr][:qrcode].to_i
+    if @u = User.find_by(qrcode: @qr)
+      
+      @ws = @u.work_times.where('start >= ?', Date.today).first 
+      @we = @u.work_times.where('end >= ?', Date.today ).first
+      
+      if !@ws && !@we
+        @newdata = @u.work_times.build(start: Time.now)
+        @newdata.save
+        @show = "出勤しました"
+        render json: @show
+      elsif @ws && @we
+        @show = "退勤してます"
+        render json: @show
+      elsif @ws && !@we
+        @ws.end = Time.now
+        @ws.save
+        @show = "退勤しました"
+        render json: @show
+      elsif !@ws && @we
+        @show = "error"
+        render json: @show
+      end
+    else
+      @show = "ユーザーが見つかりません"
+      render json: @show
     end
-        
-        day = d.wday
-         
-        if day < 6
-            return d
-        elsif day == 6
-            d = d + 2
-            return d
-        else
-            d = d + 1
-            return d
-        end
-       
-  end
+  else
   
-  def self.getworkdayend(d)
-    while HolidayJp.holiday?(d) do
-            d = d + 1
-    end
-        
-        day = d.wday
-         
-        if day < 6
-            return d + 1
-        elsif day == 6
-            d = d + 2
-            return d + 1
-        else
-            d = d + 1
-            return d + 1
-        end
-       
   end
-  
+
+end
+
+
   private
     def params_works
-      params.require(:work_time).permit(:start, :end) 
+      params.require(:qrcode).permit(:qrcode)
                                                 
     end
     

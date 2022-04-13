@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KintaiApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= include_gon %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- コード追加　Bootstrap CSS読み込みコード-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- コード追加　Bootstrap JavaScript読み込みコード-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js"></script>
+    <script src="https://kit.fontawesome.com/fb5f45c83b.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <% current_user %>
+    
+    <section class="header"><%= render 'layouts/header' %></section>
+    <section class="messages"><%= render 'layouts/messages' %></section>
+  
+    <section class="main">
+        <%= render 'layouts/left-sidebar' %>
+     
+        
+        <section class="main-container"><%= yield %></section>
+        
+    </section>
+  </body>
+</html>

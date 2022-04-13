@@ -1,0 +1,19 @@
+
+<session class="left-sidebar">
+    <% if @current_user %>
+    <%= link_to "ダッシュボード",user_path(current_user), data: {"turbolinks" => false} %>
+    <%= link_to "集荷依頼", pickup_requests_index_path, data: {"turbolinks" => false} %>
+    <%= link_to "入荷予定", receiveds_path, data: {"turbolinks" => false} %>
+    <%= link_to "カレンダー", "/events/index" , data: {"turbolinks" => false}%>
+    <%= link_to "QR読み取り", "/cameras/index" , data: {"turbolinks" => false}%>
+    <%= link_to "ワークタイム", "/works/data" , data: {"turbolinks" => false}%>
+    <%= link_to "勤怠", "/works", data: {"turbolinks" => false} %>
+    <%= link_to "チャット", rooms_path %>
+    <%= link_to "ユーザー作成", new_user_path %>
+    <%end%>
+    
+    
+    
+    
+    
+</session>

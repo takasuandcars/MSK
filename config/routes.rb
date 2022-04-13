@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :work_schedules
     get 'works/edit', to: "works#edit"
     patch 'works', to: "works#update"
-    get 'works', to: "works#index"
+    #get 'works', to: "works#index"
     get 'works/data', to: "works#data"
     get '/qrcode', to: "qrcode#index"
     get 'cameras/index', to: "cameras#index"
@@ -37,13 +37,19 @@ Rails.application.routes.draw do
     get "pickup_requests/edit", to: "pickup_requests#edit"
     post "pickup_requests/create_received", to: "pickup_requests#create_received"
 
+
+
+
+
+
+
     #routes for react
 
     root to: redirect('/home')
     get '/home', to: "site#index"
     get '/login_react', to: "site#index"
     get '/dashboard', to: "site#index"
-
+    get '/works', to: "site#index"
 
     #copy from the site
     post '/signup', to: 'registrations#signup'
@@ -56,8 +62,9 @@ Rails.application.routes.draw do
     #end of copy
     namespace :api do
       namespace :v1 do
-        get '/site/index', to: 'site#index'
+        get '/works', to: "works#index"
         get '/auth', to: 'sessions#login'
+        post '/qrcode', to: "works#create"
         #resources :todos, only: %i[index show create update destroy]
       end
     end
@@ -68,6 +75,7 @@ Rails.application.routes.draw do
 
   #QrRead
     get 'qrread/index', to: "site#index"
+    
 
 
 end
