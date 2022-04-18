@@ -43,7 +43,7 @@
     justify-content: flex-end;
 }
 
-/* 
+
 .messages {
     position: absolute;
     top: 50px;
@@ -57,7 +57,7 @@
     margin: 0 auto;
     height: 100px;
 
-} */
+}
 
 .alert {
     width: 500px;
