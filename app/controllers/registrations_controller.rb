@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-
+    skip_before_action :login_check
     def new
         current_user
         if logged_in?

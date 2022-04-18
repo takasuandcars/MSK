@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 
 
 
-    #routes for react
+    ###########routes for react#############
 
     root to: redirect('/home')
     get '/home', to: "site#index"

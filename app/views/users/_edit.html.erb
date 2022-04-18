@@ -1,0 +1,10 @@
+<%= form_with(model: @user, remote: true, class: "form_with_css") do |f| %>
+
+    <div class="tr td car_type_row"><%= f.text_field :name %></div>
+    <div class="tr td number_of_car_row"><%= f.email_field :email %></div>
+    <div class="tr td function_row">
+    <span><%= f.submit "保存", class: "btn"%></span>
+   
+    <span><%= link_to "削除", pickup_request_path(id: @user.id), method: :delete, class: "btn", remote: true%></span>
+    </div>
+<%end%>  

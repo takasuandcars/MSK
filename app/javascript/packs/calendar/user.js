@@ -5,7 +5,7 @@ import monthGridPlugin from '@fullcalendar/daygrid'
 import googleCalendarApi from '@fullcalendar/google-calendar'
 
 //<div id='calendar'></div>のidからオブジェクトを定義してカレンダーを作っていきます。
-    document.addEventListener('turbolinks:load', function() {
+    
 
     var calendarEl = document.getElementById('ucalendar');
 
@@ -58,4 +58,4 @@ import googleCalendarApi from '@fullcalendar/google-calendar'
     //カレンダー表示
     calendar.render();
 
-});
+

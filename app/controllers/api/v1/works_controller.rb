@@ -16,22 +16,22 @@ def create
         @newdata = @u.work_times.build(start: Time.now)
         @newdata.save
         @show = "出勤しました"
-        render json: @show
+        render json: [ @show, message: "出勤しました" , status: "start"]
       elsif @ws && @we
         @show = "退勤してます"
-        render json: @show
+        render json: [ @show, message: "退勤してます", status: "finished"]
       elsif @ws && !@we
         @ws.end = Time.now
         @ws.save
         @show = "退勤しました"
-        render json: @show
+        render json: [@show, message: "退勤しました", status:"end"]
       elsif !@ws && @we
         @show = "error"
-        render json: @show
+        render json: [@show, message: "エラー", status: "error"]
       end
     else
       @show = "ユーザーが見つかりません"
-      render json: @show
+      render json: [@show, message: "ユーザーが見つかりません", status: "nofound"]
     end
   else
   

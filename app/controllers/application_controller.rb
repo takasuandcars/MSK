@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper
-   #before_action :login_check
+   before_action :login_check
+   skip_before_action :verify_authenticity_token
+   helper_method :login!, :current_user
     
     def login_check
          if current_user.nil?
@@ -12,9 +14,7 @@ class ApplicationController < ActionController::Base
 
 #copy from the site for login using react
 
-    skip_before_action :verify_authenticity_token
 
-    helper_method :login!, :current_user
 
     def login!
         session[:user_id] = @user.id

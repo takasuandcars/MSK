@@ -49,7 +49,20 @@ class UsersController < ApplicationController
     end    
     
   end
-  
+
+  def update
+    if @user = User.find_by(id: params[:id])
+        @user.update_attribute(:email, params[:user][:email])
+    end
+
+  end
+
+  def delete
+    @user = User.find_by(id: params[:id])
+    if @user && @user.admin?
+      @user.delete
+    end
+  end
   private
     def params_user
        params.require(:user).permit(:name, :email, :password, :password_confirmation)

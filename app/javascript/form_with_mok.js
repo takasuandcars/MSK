@@ -7,8 +7,7 @@
 //});
 
 /*global $*/
-
-document.addEventListener("turbolinks:load" ,function () {
+$(document).ready(function(event) { 
     
     $('#received_button').on("click", function(){
        $('#pickup_request_form').show();

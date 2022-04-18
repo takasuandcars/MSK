@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
   def destroy
     log_out
     cookies.encrypted[:user_id_for_chat] = nil
-    redirect_to login_path
+    redirect_to root_path
     
     
   end

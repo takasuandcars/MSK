@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'index' %>
+    
     <!-- コード追加　Bootstrap CSS読み込みコード-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- コード追加　Bootstrap JavaScript読み込みコード-->
@@ -18,22 +19,39 @@
   </head>
 
   <body>
-    <% current_user %>    
-    
-    <section class="messages"><%= render 'layouts/messages' %></section>
-  
-    <section class="main">
-       
-     
+    <% if @react %>
+        <% current_user %>    
+        <section class="header"><%= render 'layouts/header' %></section>
+        <section class="messages"><%= render 'layouts/messages' %></section>
+      
         
-        <%= yield %>
+        <section class="main">
+          
         
-    </section>
-  </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
-  <%= javascript_pack_tag 'mapplic' %>
+            
+            <%= yield %>
+            
+        </section>
+      </body>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
+      <%= javascript_pack_tag 'mapplic' %>
+    <% else %>
+        <% current_user %>
+        
+        <section class="header"><%= render 'layouts/header' %></section>
+        <section class="messages"><%= render 'layouts/messages' %></section>
+      
+        <section class="main">
+            <%= render 'layouts/left-sidebar' %>
+        
+            
+            <section class="main-container"><%= yield %></section>
+            
+        </section>
+      </body>
 
+    <%end%>
 </html>

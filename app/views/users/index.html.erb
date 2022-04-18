@@ -1,4 +1,4 @@
-<h1 class="title">ユーザー一覧</h1>
+<h1 class="title">ユーザ一覧</h1>
 
 <div class="sub-title">
         
@@ -15,20 +15,16 @@
 
     <div class="table table_box">
       <div class="tr_box tr_box_th">
-        <div class="tr th received_data_column">入荷日</div>
-        <div class="tr th awb-column">AWB</div>
-        <div class="tr th invoice_column">INV</div>
-        <div class="tr th thnumber_column">行数</div>
-        <div class="tr th shipped_date_column">出荷日</div>
-        <div class="tr th remark_column">備考</div>
+        <div class="tr th received_data_column">name</div>
+        <div class="tr th awb-column">email</div>
         <div class="tr th function_column">機能</div>
       </div>
       <% @datas.each  do  |data|%>
       <div class="tr_box data_show tr_box_td" id=<%= "data_#{data["id"]}" %>>
         <div class="tr td name_row"><%= data.name %></div>
-        </div>
+        <div class="tr td name_row"><%= data.email %></div>
         <div class="tr td function_row">
-            <span><%= link_to "編集", receveds_modify_path(id: data["id"]), remote: true %></span>
+            <span><%= link_to "編集", edit_user_path(id: data["id"]), remote: true %></span>
         </div>
       </div>
       <%end%>

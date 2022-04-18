@@ -1,8 +1,9 @@
 class SiteController < ApplicationController
-    #skip_before_action :login_check, only:[:index]
+    skip_before_action :login_check, only:[:index]
     include SessionsHelper
     def index
         gon.login_check = login?
+        @react = true
         
     end
 

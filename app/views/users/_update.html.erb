@@ -1,0 +1,6 @@
+
+    <div class="tr td car_type_row"><%= @user.name%></div>
+    <div class="tr td number_of_car_row"><%= @user.email%></div>
+    <div class="tr td function_row">
+        <span><%= link_to "編集", edit_user_path(id: @user.id), remote: true %></span>
+    </div>
