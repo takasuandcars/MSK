@@ -27,7 +27,7 @@
 <div class="invite-users create-new-data", id="pickup_request_form">
     <div class="input-box">
     <i class="far fa-times-circle fa-lg closeicon"></i>
-    <%= form_with model: @entry , method: :post do |f| %>
+    <%= form_with model: @entry , data: { remote: false }, method: :post do |f| %>
     <div class="input-group mb-3">
         <% @users.each do |user| %>
             <% if !entried?(user) %>
@@ -39,10 +39,21 @@
         <% end %>
                 <%= f.hidden_field :room_id, value: @room.id %>
             <div class="input-group append">
-                <%= f.submit "Invite", class: "btn btn-primary" %>
+                <%= f.submit "Invite", class: "btn btn-primary closeicon" %>
             </div>
             </div>
         <%end%>
+        
+        <h4> 参加者 ↓</h4>
+        <% @users.each do |user| %>
+            <% if entried?(user) %>
+                
+                <div class="check-box-user"><%= user.name %></div>
+        
+                
+            <%end%>
+        <% end %>
+
 </div>
 </div>
 

@@ -80,7 +80,7 @@
         <div class="tr th function_column">機能</div>
       </div>
       <% @datas.each  do  |data|%>
-      <div class="tr_box data_show tr_box_td" id=<%= "data_#{data["id"]}" %>>
+      <div class="tr_box data_show tr_box_td" id=<%= "data_re_#{data["id"]}" %>>
         <div class="tr td received_data_row"><%= data["received_date"]%></div>
         <div class="tr td number_row"><%= data["number"]%></div>
         <div class="tr td awb-row"><%= data["awb"]%></div>
