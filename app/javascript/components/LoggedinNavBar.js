@@ -13,7 +13,8 @@ return (
           </h1>
           <div className="header-right">
               <div className="user-name">
-               {props.userStatus.name}
+              <a href={"/users/"+ props.userStatus.id}> {props.userStatus.name}</a>
+               
               </div>
               <div className="logout">
                  <a onClick={props.logout}>ログアウト</a>

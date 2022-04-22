@@ -8,7 +8,7 @@ function LoggedinSideBar(props) {
     
 return (
     <>
-      <a href="/">ダッシュボード</a>
+      <a href="/">物流センターマップ</a>
       <a href="/pickup_requests/index">集荷依頼</a>
       <a href="/receiveds">入荷予定</a>
       <a href="/events/index">カレンダー</a>
