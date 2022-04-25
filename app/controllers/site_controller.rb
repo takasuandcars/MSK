@@ -38,7 +38,7 @@ class SiteController < ApplicationController
         
         n_of_jobs = Received.all.where(received_date:  Date.today..Date.today ).sum(:number_of_order)
         rest_of_jobs = Received.all.where(received_date:  Date.today..Date.today ).where(shipped_date: nil).sum(:number_of_order)
-        n_of_staffs = WorkTime.all.where('start >= ?', Date.today).count
+        n_of_staffs = WorkTime.all.where('start >= ?', Date.today).where(end: nil).count
         #render template: "/mapplic/map.json"
         test = "test data yeah!!"
         render json: {
