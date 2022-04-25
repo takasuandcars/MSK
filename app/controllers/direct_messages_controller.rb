@@ -1,7 +1,9 @@
 class DirectMessagesController < ApplicationController
   def create
     @message = current_user.direct_messages.new (params_new_message)
+    @message.created_at = Time.now + 60 * 60 * 9
     @message.save
+
   end
   
   private

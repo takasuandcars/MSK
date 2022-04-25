@@ -14,6 +14,28 @@ function LoginPage(props) {
         
         
     }
+
+    const testLogin = (event) =>{
+        var data = {
+            user: {
+                email: "test.user@test.com",
+                password: "test",
+            }
+        }
+        axios.post("/signup2", data , { withCredentials: true })
+        .then(response => {
+            if (response.data.status === 'created') {
+            
+                handleSuccessfulAuthentication(response.data)
+            }
+        }).catch(error => {
+            console.log("registration error", error)
+        })
+        event.preventDefault();
+
+
+
+    }
     
 
     const handleSubmit = (event) => {
@@ -73,10 +95,16 @@ function LoginPage(props) {
                         <div className="btn-container">
                             <button type="submit" className="btn btn-primary">ログイン</button>
                         </div>
+                        <div className="btn-container">
+                          <button onClick={testLogin} className="test-login btn-primary">テストユーザーでログイン</button>
+                        </div>
+                
                         
                     </form>
+
+                    
                 </div>
-            
+                
                 
                 
         </div>

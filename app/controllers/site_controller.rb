@@ -36,8 +36,8 @@ class SiteController < ApplicationController
     def map_json
 
         
-        n_of_jobs = Received.all.where('received_date >= ?', Date.today).sum(:number_of_order)
-
+        n_of_jobs = Received.all.where(received_date:  Date.today..Date.today ).sum(:number_of_order)
+        rest_of_jobs = Received.all.where(received_date:  Date.today..Date.today ).where(shipped_date: nil).sum(:number_of_order)
         n_of_staffs = WorkTime.all.where('start >= ?', Date.today).count
         #render template: "/mapplic/map.json"
         test = "test data yeah!!"
@@ -119,10 +119,10 @@ class SiteController < ApplicationController
                             "style": "dark",
                             "x": "0.2390",
                             "y": "0.6000"
-                        },
+                        },    
                         {
                             "id": "area7",
-                            "title": "<h4>Are7</h4><p>現在の作業人数：#{n_of_staffs}</p><p>本日の作業量：#{n_of_jobs}",
+                            "title": "<h4>Area7</h4><p>現在の作業人数：#{n_of_staffs}</p><p>本日の作業量：#{n_of_jobs}</p><p>残り作業量：#{rest_of_jobs}</p>",
                             "about": "Lorem ipsum",
                             "description": "<p>データベースより、本日の作業量及び現在の作業人数を動的に取得し表示しています。</p>",
                             "category": "food",

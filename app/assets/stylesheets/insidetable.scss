@@ -9,10 +9,18 @@ h2 {
    display: none;
    background: #DCDCDC;
    height: 100%;
+   .function_row{
+    display: flex;
+    
+     span{
+       display: block;
+       width: 100%;
+     }
+  }
 }
 
 .inside_table_box {
-  width: 900px;
+  
   border-collapse: separate;
   border-spacing: 0;
   margin: 10px auto;
@@ -134,11 +142,11 @@ h2 {
   
       }
       
-      .function_row {
-        a {
-          font-size: 30px;
-        }
-      }
+      // .function_row {
+      //   a {
+      //     font-size: 30px;
+      //   }
+      // }
       
       .btn {
         width: 50%;
