@@ -24,10 +24,13 @@ https://merucha.com
 ・jsQR
 ・Prawn
 ・ChartJS
+・React
+・Mapplic
 
 
 【機能一覧】
 ・ユーザー登録／ログイン機能
+・物流センターマップ表示
 ・集荷依頼入力
 ・集荷依頼PDF出力
 ・クーリエデーター入力
