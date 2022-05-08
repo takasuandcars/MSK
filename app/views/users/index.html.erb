@@ -21,7 +21,7 @@
       </div>
       <% @datas.each  do  |data|%>
       <div class="tr_box data_show tr_box_td" id=<%= "data_#{data["id"]}" %>>
-        <div class="tr td name_row"><%= data.name %></div>
+        <div class="tr td name_row"><%= link_to "#{data.name}", user_path(data) %></div>
         <div class="tr td name_row"><%= data.email %></div>
         <div class="tr td function_row">
             <span><%= link_to "編集", edit_user_path(id: data["id"]), remote: true %></span>

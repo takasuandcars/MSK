@@ -53,6 +53,7 @@ class UsersController < ApplicationController
   def update
     if @user = User.find_by(id: params[:id])
         @user.update_attribute(:email, params[:user][:email])
+        @user.update_attribute(:name, params[:user][:name])
     end
 
   end
