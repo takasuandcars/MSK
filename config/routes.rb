@@ -63,6 +63,7 @@ Rails.application.routes.draw do
     namespace :api do
       namespace :v1 do
         get '/works', to: "works#index"
+        patch '/works/:id', to: "works#update"
         get '/auth', to: 'sessions#login'
         post '/qrcode', to: "works#create"
         #resources :todos, only: %i[index show create update destroy]

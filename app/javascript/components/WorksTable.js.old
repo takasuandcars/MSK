@@ -1,16 +1,15 @@
 
 
 import React, { useState, useEffect } from 'react'
-import Edit from './WorksTable/Edit'
-import NonEdit from './WorksTable/NonEdit'
 import axios from 'axios'
 
 
 
 function WorksTable(props) {
     const [workdatas, setWorkdatas] = useState([])
-    const [newWorkdatas, setnewWorkdatas] = useState([])
     const [searchName, setSearchName] = useState('')
+    const [start, setStart] = useState("")
+    const [end, setEnd] = useState("")
   
     useEffect(() => {
       axios.get('/api/v1/works.json')
@@ -22,47 +21,21 @@ function WorksTable(props) {
         console.log(e);
       })
     }, [])
-
-    const SetNewDatas = (index, val)=> {
+  
+ 
+  
+    const updateIsCompleted = (index, val) => {
       var data = {
-        index: index,
-        start: val,
+        id: val.id,
+        name : val.name,
+        is_completed: !val.is_completed
       }
-      newWorkdatas.push(data);
-      console.log(newWorkdatas)
-
-
-    }
-  
-    const EditButton = (index, val) => {
-      const newDatas = [...workdatas]
-      console.log(index);
-      console.log(newDatas)
-      newDatas[index].edit = !val.edit
-      setWorkdatas(newDatas);
-    }
-  
-    const updateIsCompleted = (index, data) => {
-     
-      axios.patch(`/api/v1/works/${data.id}`, data)
+      axios.patch(`/api/v1/todos/${val.id}`, data)
       .then(resp => {
-        console.log(resp);
-        const newWorkdatas = [...workdatas]
-        newWorkdatas[index].edit = false
-        newWorkdatas[index].start = resp.data.start
-        newWorkdatas[index].end = resp.data.end
-        newWorkdatas[index].hours = resp.data.hours
-        setWorkdatas(newWorkdatas)
-        console.log(newWorkdatas)
+        const newTodos = [...todos]
+        newTodos[index].is_completed = resp.data.is_completed
+        setTodos(newTodos)
       })
-    }
-
-    const CancelBtn = (index) =>{
-      const newWorkdatas = [...workdatas]
-      newWorkdatas[index].edit = false
-      console.log(workdatas)
-      setWorkdatas(newWorkdatas)
-      console.log(newWorkdatas)
     }
     
 
@@ -94,14 +67,28 @@ function WorksTable(props) {
                     {workdatas.map((val, key) => {
                     return (
                     <div className="tr_box data_show tr_box_td" key={key}>
-                      {val.edit?
-
-
-                        <Edit index={key} val={val} SetNewDatas={SetNewDatas} updateIsCompleted={updateIsCompleted} CancelBtn={CancelBtn}/>
-                         :
-                        <NonEdit index={key} val={val} EditButton={EditButton}/> 
-                      
-                      }
+                        <div className="tr td">{val.name}</div>
+                        <div className="tr td">{val.start}</div>
+                        <div className="tr td">{val.end}</div>
+                        <div className="tr td">{val.hours}</div>
+                        <div className="tr td function_row">test</div>
+                        {/* {val.is_completed ? (
+                            <CheckedBox>
+                            <ImCheckboxChecked onClick={() => updateIsCompleted(key, val) } />
+                            </CheckedBox>
+                        ) : (
+                            <UncheckedBox>
+                            <ImCheckboxUnchecked onClick={() => updateIsCompleted(key, val) } />
+                            </UncheckedBox>
+                        )} */}
+                        {/* <TodoName is_completed={val.is_completed}>
+                            {val.name}
+                        </TodoName> */}
+                        {/* <Link to={"/todos/" + val.id + "/edit"}>
+                            <EditButton>
+                            <AiFillEdit />
+                            </EditButton>
+                        </Link> */}
                     </div>
                     
                     )}

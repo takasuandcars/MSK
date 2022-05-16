@@ -1,8 +1,9 @@
 class Api::V1::WorksController < ApplicationController
 
   def index
-    @datas = User.joins(:work_times).select("users.name", "work_times.start","work_times.end", "work_times.hours")
-    render json: @datas
+    @datas = WorkTime.joins(:user).select("id","users.name", "work_times.start","work_times.end", "work_times.hours")
+    #render json: @datas
+    
   end
 
 def create
@@ -39,11 +40,22 @@ def create
 
 end
 
+def update
+  data = WorkTime.find_by(id: params[:id])
+
+  if(data)
+    data.update_attributes(params_update)
+    render json: data
+  end
+end
 
   private
     def params_works
       params.require(:qrcode).permit(:qrcode)
                                                 
+    end
+    def params_update
+      params.require(:work).permit(:start, :end)
     end
     
     

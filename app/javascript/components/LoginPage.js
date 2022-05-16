@@ -1,11 +1,24 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
-
+toast.configure();
 function LoginPage(props) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
+    const notify = (res) => {
+       
+                toast.error("メールアドレスまたはパスワードが違います。", {
+                position: "top-center",
+                hideProgressBar: true,
+                autoClose: 2000,
+                });
+
+      }
+
 
     const handleSuccessfulAuthentication = (data) => {
         console.log("handleSuccessfulAuthentication");
@@ -25,11 +38,12 @@ function LoginPage(props) {
         axios.post("/signup2", data , { withCredentials: true })
         .then(response => {
             if (response.data.status === 'created') {
-            
+                
                 handleSuccessfulAuthentication(response.data)
             }
         }).catch(error => {
             console.log("registration error", error)
+            notify();
         })
         event.preventDefault();
 
@@ -55,6 +69,7 @@ function LoginPage(props) {
             }
         }).catch(error => {
             console.log("registration error", error)
+            notify();
         })
         event.preventDefault()
     }
