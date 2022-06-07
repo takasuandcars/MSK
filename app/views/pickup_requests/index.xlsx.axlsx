@@ -1,6 +1,6 @@
 wb = xlsx_package.workbook
-sheet = wb.add_worksheet(name: "集荷データ")
-sheet.add_row [ "No.", "日付", "車種", "CBM" ]
+sheet = wb.add_worksheet(name: '集荷データ')
+sheet.add_row ['No.', '日付', '車種', 'CBM']
 @excels.each_with_index do |excel, index|
-    sheet.add_row [ index, excel.pickup_date, excel.car_type, excel.cbm ]
+  sheet.add_row [index, excel.pickup_date, excel.car_type, excel.cbm]
 end

@@ -3,14 +3,15 @@ class DirectMessageBroadJob < ApplicationJob
 
   def perform(message)
     # Do something later
-    ActionCable.server.broadcast( "chat-#{message.room_id}", { message: render_message(message) })
+    ActionCable.server.broadcast("chat-#{message.room_id}", { message: render_message(message) })
   end
-  
+
   private
+
   def render_message(message)
-    DirectMessagesController.render( 
+    DirectMessagesController.render(
       partial: 'message',
-      locals: {message: message }
-      )
+      locals: { message: message }
+    )
   end
 end

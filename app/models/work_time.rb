@@ -1,11 +1,8 @@
 class WorkTime < ApplicationRecord
-    belongs_to :user
-    before_update :calhours
-    
-    def calhours
-        if self.end
-            self.update_column(:hours, (self.end - self.start) / 60)
-        end
-    end
-      
+  belongs_to :user
+  before_update :calhours
+
+  def calhours
+    update_column(:hours, (self.end - start) / 60) if self.end
+  end
 end
